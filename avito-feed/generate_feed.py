@@ -26,6 +26,7 @@ def build_row(rec):
         'Тип двигателя [Грузовики]': rec["engine_type"],
         'Мощность': rec["power_hp"],
         'Коробка передач': rec["transmission"],
+        'Услуга продвижения': rec.get("promotion", ""),
         'Вид техники': 'Грузовики',
         'Валюта': rec["currency"],
         'НДС включён': 'Да' if rec.get("vat_included") else 'Нет',
