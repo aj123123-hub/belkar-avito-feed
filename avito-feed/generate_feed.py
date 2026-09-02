@@ -45,15 +45,23 @@ def main():
     wb = openpyxl.Workbook()
     ws = wb.active
     ws.title = "Объявления"
-    ws.append(HEADERS)
+    for c, h in enumerate(HEADERS, start=1):
+        cell = ws.cell(row=1, column=c, value=h)
+        cell.number_format = "@"
 
     count = 0
+    r = 2
     for path in sorted(glob.glob("data/*.json")):
         with open(path, encoding="utf-8") as f:
             rec = json.load(f)
         if rec.get("status") != "active":
             continue
-        ws.append(build_row(rec))
+        values = build_row(rec)
+        for c, v in enumerate(values, start=1):
+            # требование Авито: все ячейки должны быть текстовым форматом
+            cell = ws.cell(row=r, column=c, value=str(v) if v != "" else "")
+            cell.number_format = "@"
+        r += 1
         count += 1
 
     for col in ws.columns:
@@ -61,7 +69,7 @@ def main():
         ws.column_dimensions[col[0].column_letter].width = min(max(length + 2, 10), 40)
 
     wb.save("fleet.xlsx")
-    print(f"fleet.xlsx собран: {count} активных объявлений")
+    print(f"fleet.xlsx собран: {count} активных объявлений (все ячейки — текстовый формат)")
 
 if __name__ == "__main__":
     main()
