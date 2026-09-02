@@ -1,0 +1,29 @@
+{
+  "id": "shacman-sx331863366-px013400",
+  "status": "active",
+  "vin": "LZGJX4Z61PX013400",
+  "make": "Shacman",
+  "body_type": "Самосвал",
+  "model": "SX331863366",
+  "wheel_formula": "8×4",
+  "engine_type": "Дизель",
+  "power_hp": 550,
+  "transmission": "Механика",
+  "year": 2023,
+  "mileage_km": 123693,
+  "body_volume_m3": 35,
+  "emission_class": "Евро 5",
+  "pts_or_psm": "В наличии",
+  "chassis_body_same_brand": true,
+  "currency": "RUB",
+  "vat_included": false,
+  "availability": "В наличии",
+  "price": 4500000,
+  "address": "Москва, Ижорская ул., 5",
+  "manager_name": "",
+  "phone": "",
+  "description": "Самосвал Shacman SX331863366, 2023 год выпуска.\n\nДвигатель Weichai WP13.550E501, 550 л.с., дизель.\nКолёсная формула 8x4, коробка механическая.\nПробег 123 693 км, техническое состояние — на ходу, полностью исправен.\nКузов — самосвал, объём 35 м3.\n\nОдин собственник, эксплуатировался по назначению. Документы в порядке. Смотровая площадка и показ — по договорённости.\n\nТорг при осмотре.",
+  "photos": [
+    "photos/shacman-sx331863366-px013400/side-view.jpeg"
+  ]
+}
