@@ -17,6 +17,7 @@ def build_row(rec):
         'Описание объявления': rec["description"],
         'Категория': 'Грузовики и спецтехника',
         'Цена': rec["price"],
+        'Цена в валюте': rec["price"],
         'Ссылки на фото': photo_urls,
         'Адрес': rec["address"],
         'Марка': rec["make"],
@@ -38,6 +39,9 @@ def build_row(rec):
         'VIN, номер кузова или SN': rec["vin"],
         'Год выпуска': rec["year"],
         'Объём кузова': rec.get("body_volume_m3", ""),
+        'Объём двигателя': rec.get("engine_volume_cm3", ""),
+        'Разрешённая максимальная масса': rec.get("gross_weight_kg", ""),
+        'Грузоподъёмность в кг': rec.get("payload_kg", ""),
         'Экологический класс': rec.get("emission_class", ""),
     }
     return [row.get(h, "") for h in HEADERS]
