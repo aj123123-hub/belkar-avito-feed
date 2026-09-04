@@ -1,0 +1,33 @@
+{
+  "id": "kassbohrer-maxima-shtor-00124732",
+  "status": "active",
+  "vin": "WKVDAF30300124732",
+  "make": "Kassbohrer",
+  "model": "Maxima",
+  "trailer_type": "Шторный",
+  "year": 2023,
+  "axles": 3,
+  "suspension": "Рессорная",
+  "brakes": "Барабанные",
+  "payload_kg": 28540,
+  "length_mm": 13600,
+  "volume_m3": 92,
+  "pts_or_psm": "В наличии",
+  "currency": "RUB",
+  "vat_included": false,
+  "availability": "В наличии",
+  "price": 3390000,
+  "address": "Москва, Ижорская ул., 15с2",
+  "manager_name": "",
+  "phone": "",
+  "description": "Полуприцеп шторный Kassbohrer, 2023 год выпуска, TIR-исполнение.\n\nОси BPW, 3 шт., подвеска рессорная, тормоза барабанные. Шины бескамерные 385/65R22,5, односкат, Bridgestone.\n\nМасса снаряжённого 7 630 кг, грузоподъёмность 28 540 кг, разрешённая максимальная масса 39 000 кг.\nВнутренние размеры 13 600×2 480×2 700 мм, объём кузова 92 м³. Высота ССУ 1150 мм.\nБоковая обшивка из фанеры, пол — ламинированная фанера 30 мм.\n\nТехническое состояние — на ходу, полностью исправен, не требует вложений и ремонта.\nДокументы в порядке.\n\nВозможна аренда с правом выкупа — уточняйте условия по телефону.\n\nСмотровая площадка и показ — по договорённости. Торг при осмотре.",
+  "photos": [
+    "photos/kassbohrer-maxima-shtor-00124732/01.jpg",
+    "photos/kassbohrer-maxima-shtor-00124732/02.jpg",
+    "photos/kassbohrer-maxima-shtor-00124732/03.jpg",
+    "photos/kassbohrer-maxima-shtor-00124732/04.jpg",
+    "photos/kassbohrer-maxima-shtor-00124732/05.jpg",
+    "photos/kassbohrer-maxima-shtor-00124732/06.jpg"
+  ],
+  "promotion": ""
+}
