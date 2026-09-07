@@ -24,6 +24,7 @@ def build_row(rec):
         'Валюта': rec["currency"],
         'НДС включён': 'Да' if rec.get("vat_included") else 'Нет',
         'Доступность': rec["availability"],
+        'Адрес стоянки': rec["address"],
         'Скидка за лизинг': rec.get("lease_discount", ""),
         'Состояние': rec.get("condition", "С пробегом"),
         'Пробег': rec.get("mileage_km", ""),
