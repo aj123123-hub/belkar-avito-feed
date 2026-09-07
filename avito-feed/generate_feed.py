@@ -20,6 +20,7 @@ def build_row(rec):
         'Цена в валюте': rec["price"],
         'Ссылки на фото': photo_urls,
         'Адрес': rec["address"],
+        'Адрес стоянки': rec["address"],
         'Марка': rec["make"],
         'Тип кузова': rec["body_type"],
         'Модель': rec["model"],
