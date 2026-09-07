@@ -16,6 +16,7 @@
   "currency": "RUB",
   "vat_included": false,
   "availability": "Под заказ",
+  "condition": "Новое",
   "price": 2970000,
   "address": "Москва, Ижорская ул., 15с2",
   "manager_name": "",
