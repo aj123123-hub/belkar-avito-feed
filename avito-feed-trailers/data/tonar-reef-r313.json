@@ -11,6 +11,7 @@
   "brakes": "Дисковые",
   "length_mm": 13600,
   "volume_m3": 85,
+  "payload_kg": 31200,
   "pts_or_psm": "В наличии",
   "currency": "RUB",
   "vat_included": false,

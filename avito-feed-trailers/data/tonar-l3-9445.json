@@ -9,6 +9,7 @@
   "axles": 3,
   "suspension": "Рессорная",
   "brakes": "Барабанные",
+  "payload_kg": 36700,
   "pts_or_psm": "В наличии",
   "currency": "RUB",
   "vat_included": false,

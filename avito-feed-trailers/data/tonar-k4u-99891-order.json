@@ -10,6 +10,7 @@
   "suspension": "Рессорная",
   "brakes": "Дисковые",
   "length_mm": 12725,
+  "payload_kg": 37800,
   "pts_or_psm": "В наличии",
   "currency": "RUB",
   "vat_included": false,
