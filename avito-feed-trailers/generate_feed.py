@@ -26,6 +26,7 @@ def build_row(rec):
         'Доступность': rec["availability"],
         'Адрес стоянки': rec["address"],
         'Скидка за лизинг': rec.get("lease_discount", ""),
+        'Скидка от дилера': rec.get("dealer_discount", ""),
         'Состояние': rec.get("condition", "С пробегом"),
         'Пробег': rec.get("mileage_km", ""),
         'ПТС или ПСМ': rec["pts_or_psm"],
