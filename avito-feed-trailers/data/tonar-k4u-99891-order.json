@@ -7,7 +7,7 @@
   "trailer_type": "Контейнеровоз",
   "year": 2026,
   "axles": 4,
-  "suspension": "Рессорная",
+  "suspension": "Пневматическая",
   "brakes": "Дисковые",
   "length_mm": 12725,
   "payload_kg": 37800,

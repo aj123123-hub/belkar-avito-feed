@@ -7,7 +7,7 @@
   "trailer_type": "Зерновоз",
   "year": 2026,
   "suspension": "Пневматическая",
-  "brakes": "Дисковые",
+  "brakes": "Барабанные",
   "axles": 3,
   "volume_m3": 50,
   "payload_kg": 31000,
