@@ -60,6 +60,9 @@ def main():
             rec = json.load(f)
         if rec.get("status") != "active":
             continue
+        vin = rec.get("vin", "")
+        if vin and vin in rec.get("description", ""):
+            raise SystemExit(f"{path}: VIN {vin} попал в текст описания — уберите (VIN должен быть только в структурном поле)")
         values = build_row(rec)
         for c, v in enumerate(values, start=1):
             # требование Авито: все ячейки должны быть текстовым форматом
