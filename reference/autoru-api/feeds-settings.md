@@ -57,36 +57,78 @@ GET https://apiauto.ru/1.0/feeds/settings
 }
 ```
 
-<div class="params-table">
+### Параметры ответа {#spec-output}
 
-{% include notitle [feeds](../_includes/params/feeds-settings-ddd803ac18fe.md#feeds) %}
+#|
+||
+**Параметр**
+|
+**Описание**
+||
+||
+`feeds`
+|
+Список настроек для прайс-листов.
+||
+||
+`feeds[].category`
+|
+Информация о категории ТС.
+||
+||
+`feeds[].category.section`
+|
+Состояние транспортного средства. Допустимые значения: `NEW` — новое, `USED` — с пробегом.
+||
+||
+`feeds[].category.category`
+|
+Категория транспортного средства (ТС). Допустимые значения: `CARS`, `TRUCKS`, `MOTO`.
+||
+||
+`feeds[].category.truck_category`
+|
+Категория коммерческого транспорта. Допустимые значения: `TRUCK`, `LCV`, `TRAILER`, `SWAP_BODY`, `BUS`, `ARTIC`, `AGRICULTURAL`, `CONSTRUCTION`, `AUTOLOADER`, `CRANE`, `DREDGE`, `BULLDOZERS`, `CRANE_HYDRAULICS`, `MUNICIPAL`.
+||
+||
+`feeds[].category.moto_category`
+|
+Категория мототранспорта. Допустимые значения: `MOTORCYCLE`, `ATV`, `SCOOTERS`, `SNOWMOBILE`.
+||
+||
+`feeds[].settings`
+|
+Настройки прайс-листа.
+||
+||
+`feeds[].settings.source`
+|
+Ссылка на загрузку прайс-листа.
+||
+||
+`feeds[].settings.delete_sale`
+|
+Признак. Удалять объявления, которые были созданы вручную или отсутствуют в прайс-листе.
+||
+||
+`feeds[].settings.leave_services`
+|
+Признак. Не удалять услуги объявлений, если они не были переданы в прайс-листе.
+||
+||
+`feeds[].settings.leave_added_images`
+|
+Признак. Не удалять загруженные вручную фотографии, если они не были переданы в прайс-листе.
+||
+||
+`feeds[].settings.is_active`
+|
+Признак. Активна или нет загрузка данного прайс-листа.
+||
 
- 
-:   {% include notitle [category](../_includes/params/feeds-settings-ddd803ac18fe.md#category) %}
-    
-     
-    :   {% include notitle [section](../_includes/params/feeds-settings-ddd803ac18fe.md#section) %}
+|#
 
-        {% include notitle [category](../_includes/params/feeds-settings-ddd803ac18fe.md#category_car) %}
-
-        {% include notitle [truck_category](../_includes/params/feeds-settings-ddd803ac18fe.md#truck_category) %}
-
-        {% include notitle [moto_category](../_includes/params/feeds-settings-ddd803ac18fe.md#moto_category) %}
-
-    {% include notitle [settings](../_includes/params/feeds-settings-ddd803ac18fe.md#settings) %}
-    
-     
-    :   {% include notitle [source](../_includes/params/feeds-settings-ddd803ac18fe.md#source) %}
-
-        {% include notitle [delete_sale](../_includes/params/feeds-settings-ddd803ac18fe.md#delete_sale) %}
-
-        {% include notitle [leave_services](../_includes/params/feeds-settings-ddd803ac18fe.md#leave_services) %}
-
-        {% include notitle [leave_added_images](../_includes/params/feeds-settings-ddd803ac18fe.md#leave_added_images) %}
-
-        {% include notitle [is_active](../_includes/params/feeds-settings-ddd803ac18fe.md#is_active) %}
-
-</div>
+> Описания полей выше подставлены вручную с живой страницы документации (2026-09-11) — в исходном экспорте Diplodoc эти поля были нерасшифрованными `{% include %}`-ссылками на отсутствующие файлы.
 
 ## Коды ответа {#response-codes}
 
@@ -145,5 +187,3 @@ GET https://apiauto.ru/1.0/feeds/settings
 >   ]
 > }              
 > ```
-
-{% include [table-style](../_includes/table-style-border-none-2a2aa0c324bf.md) %}

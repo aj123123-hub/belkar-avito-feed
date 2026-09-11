@@ -60,7 +60,7 @@ GET https://apiauto.ru/1.0/feeds/history
         "status": {string},
         "settings": {
           "internal_url": {string},
-          "[settings](*settings-p)": {
+          "settings": {
             "source": {string},
             "delete_sale": {boolean},
             "leave_services": {boolean},
@@ -85,86 +85,166 @@ GET https://apiauto.ru/1.0/feeds/history
 }
 ```
 
-<div class="params-table">
+#|
+||
+**Параметр**
+|
+**Описание**
+||
+||
+`feeds`
+|
+Список настроек для прайс-листов.
+||
+||
+`feeds[].category`
+|
+Информация о категории ТС.
+||
+||
+`feeds[].category.section`
+|
+Состояние транспортного средства. Допустимые значения: `NEW` — новое, `USED` — с пробегом.
+||
+||
+`feeds[].category.category`
+|
+Категория транспортного средства (ТС). Допустимые значения: `CARS`, `TRUCKS`, `MOTO`.
+||
+||
+`feeds[].category.truck_category`
+|
+Категория коммерческого транспорта. Допустимые значения: `TRUCK`, `LCV`, `TRAILER`, `SWAP_BODY`, `BUS`, `ARTIC`, `AGRICULTURAL`, `CONSTRUCTION`, `AUTOLOADER`, `CRANE`, `DREDGE`, `BULLDOZERS`, `CRANE_HYDRAULICS`, `MUNICIPAL`.
+||
+||
+`feeds[].category.moto_category`
+|
+Категория мототранспорта. Допустимые значения: `MOTORCYCLE`, `ATV`, `SCOOTERS`, `SNOWMOBILE`.
+||
+||
+`feeds[].settings`
+|
+Настройки прайс-листа.
+||
+||
+`feeds[].settings.source`
+|
+Ссылка на загрузку прайс-листа.
+||
+||
+`feeds[].settings.delete_sale`
+|
+Признак. Удалять объявления, которые были созданы вручную или отсутствуют в прайс-листе.
+||
+||
+`feeds[].settings.leave_services`
+|
+Признак. Не удалять услуги объявлений, если они не были переданы в прайс-листе.
+||
+||
+`feeds[].settings.leave_added_images`
+|
+Признак. Не удалять загруженные вручную фотографии, если они не были переданы в прайс-листе.
+||
+||
+`feeds[].settings.is_active`
+|
+Признак. Активна или нет загрузка данного прайс-листа.
+||
+||
+`feeds[].task`
+|
+Информация о задаче на ручную загрузку прайс-листа.
+||
+||
+`feeds[].task.id`
+|
+Идентификатор задачи на ручную загрузку прайс-листа.
+||
+||
+`feeds[].task.created_at`
+|
+Дата создания задачи в формате ISO 8601 со смещением относительно UTC. Например, `2017-07-08T11:29:16+03:00`.
+||
+||
+`feeds[].task.finished_at`
+|
+Дата окончания задачи в формате ISO 8601 со смещением относительно UTC. Например, `2017-07-08T11:29:16+03:00`.
+||
+||
+`feeds[].task.type`
+|
+Тип загрузки прайс-листа. Параметр не выводится при использовании ручной загрузки. (В примерах встречается значение `AUTOMATIC`.)
+||
+||
+`feeds[].task.status`
+|
+Статус задачи на ручную загрузку прайс-листа. (В примерах встречаются значения `NEW`, `FAILURE`.)
+||
+||
+`feeds[].task.settings`
+|
+Настройки прайс-листа задачи (включая `internal_url` — внутреннюю ссылку на загруженный прайс-лист на стороне Авто.ру, и вложенный блок `settings` с теми же полями `source`/`delete_sale`/`leave_services`/`leave_added_images`/`is_active`, что и выше).
+||
+||
+`feeds[].task.count_offers`
+|
+Количество объявлений в прайс-листе.
+||
+||
+`feeds[].task.count_errors`
+|
+Количество объявлений с ошибками (объявления, которые не были обработаны).
+||
+||
+`feeds[].task.count_notices`
+|
+Количество объявлений с предупреждениями.
+||
+||
+`feeds[].task.count_offers_inserted`
+|
+Количество новых объявлений.
+||
+||
+`feeds[].task.count_offers_updated`
+|
+Количество обновленных объявлений.
+||
+||
+`feeds[].task.count_offers_deleted`
+|
+Количество удаленных объявлений.
+||
+||
+`feeds[].task.count_offers_skipped`
+|
+Количество необновленных объявлений.
+||
+||
+`feeds[].task.count_images`
+|
+Количество изображений в прайс-листе.
+||
+||
+`feeds[].task.count_images_success`
+|
+Количество успешно добавленных изображений.
+||
+||
+`feeds[].task.count_images_errors`
+|
+Количество незагруженных изображений.
+||
+||
+`feeds[].task.count_success`
+|
+Количество успешно обработанных объявлений.
+||
 
-{% include notitle [feeds](../_includes/params/feeds-settings-ddd803ac18fe.md#feeds) %}
+|#
 
- 
-:   {% include notitle [category](../_includes/params/feeds-settings-ddd803ac18fe.md#category) %}
-    
-     
-    :   {% include notitle [section](../_includes/params/feeds-settings-ddd803ac18fe.md#section) %}
-
-        {% include notitle [category](../_includes/params/feeds-settings-ddd803ac18fe.md#category_car) %}
-
-        {% include notitle [truck_category](../_includes/params/feeds-settings-ddd803ac18fe.md#truck_category) %}
-
-        {% include notitle [moto_category](../_includes/params/feeds-settings-ddd803ac18fe.md#moto_category) %}
-
-    {% include notitle [settings](../_includes/params/feeds-task-cars-section-786fcaab38bd.md#settings) %}
-    
-     
-    :   {% include notitle [source](../_includes/params/feeds-task-cars-section-786fcaab38bd.md#source) %}
-
-        {% include notitle [delete_sale](../_includes/params/feeds-task-cars-section-786fcaab38bd.md#delete_sale) %}
-
-        {% include notitle [leave_services](../_includes/params/feeds-task-cars-section-786fcaab38bd.md#leave_services) %}
-
-        {% include notitle [leave_added_images](../_includes/params/feeds-task-cars-section-786fcaab38bd.md#leave_added_images) %}
-
-        {% include notitle [is_active](../_includes/params/feeds-task-cars-section-786fcaab38bd.md#is_active) %}
-
-    {% include notitle [task](../_includes/params/feeds-task-cars-section-786fcaab38bd.md#task) %}  
-    
-     
-    :   {% include notitle [id](../_includes/params/feeds-task-cars-section-786fcaab38bd.md#id) %}
-
-        {% include notitle [created_at](../_includes/params/feeds-task-cars-section-786fcaab38bd.md#created_at) %}
-
-        {% include notitle [finished_at](../_includes/params/feeds-task-cars-section-786fcaab38bd.md#finished_at) %}
-
-        {% include notitle [type](../_includes/params/feeds-task-cars-section-786fcaab38bd.md#type) %}
-
-        {% include notitle [status](../_includes/params/feeds-task-cars-section-786fcaab38bd.md#status) %}
-        
-         
-        :   {% include notitle [settings](../_includes/params/feeds-task-cars-section-786fcaab38bd.md#settings) %}
-            
-             
-            :   {% include notitle [source](../_includes/params/feeds-task-cars-section-786fcaab38bd.md#source) %}
-
-                {% include notitle [delete_sale](../_includes/params/feeds-task-cars-section-786fcaab38bd.md#delete_sale) %}
-
-                {% include notitle [leave_services](../_includes/params/feeds-task-cars-section-786fcaab38bd.md#leave_services) %}
-
-                {% include notitle [leave_added_images](../_includes/params/feeds-task-cars-section-786fcaab38bd.md#leave_added_images) %}
-
-                {% include notitle [is_active](../_includes/params/feeds-task-cars-section-786fcaab38bd.md#is_active) %}
-
-        {% include notitle [count_offers](../_includes/params/feeds-task-cars-section-786fcaab38bd.md#count_offers) %}
-
-        {% include notitle [count_errors](../_includes/params/feeds-task-cars-section-786fcaab38bd.md#count_errors) %}
-
-        {% include notitle [count_notices](../_includes/params/feeds-task-cars-section-786fcaab38bd.md#count_notices) %}
-
-        {% include notitle [count_offers_inserted](../_includes/params/feeds-task-cars-section-786fcaab38bd.md#count_offers_inserted) %}
-
-        {% include notitle [count_offers_updated](../_includes/params/feeds-task-cars-section-786fcaab38bd.md#count_offers_updated) %}
-
-        {% include notitle [count_offers_deleted](../_includes/params/feeds-task-cars-section-786fcaab38bd.md#count_offers_deleted) %}
-
-        {% include notitle [count_offers_skipped](../_includes/params/feeds-task-cars-section-786fcaab38bd.md#count_offers_skipped) %}
-
-        {% include notitle [count_images](../_includes/params/feeds-task-cars-section-786fcaab38bd.md#count_images) %}
-
-        {% include notitle [count_images_success](../_includes/params/feeds-task-cars-section-786fcaab38bd.md#count_images_success) %}
-
-        {% include notitle [count_images_errors](../_includes/params/feeds-task-cars-section-786fcaab38bd.md#count_images_errors) %}
-
-        {% include notitle [count_success](../_includes/params/feeds-task-cars-section-786fcaab38bd.md#count_success) %}
-
-</div>
-
+> Описания полей выше подставлены вручную с живой страницы документации (2026-09-11).
 
 ## Коды ответа {#response-codes}
 
@@ -251,7 +331,3 @@ GET https://apiauto.ru/1.0/feeds/history
 >   ]
 > }          
 > ```
-
-{% include [table-style](../_includes/table-style-border-none-2a2aa0c324bf.md) %}
-
-[*settings-p]: {% include notitle [settings-p](../_includes/popups-00286d1be377.md#settings-p) %}

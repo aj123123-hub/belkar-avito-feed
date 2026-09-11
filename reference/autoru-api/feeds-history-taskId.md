@@ -972,4 +972,99 @@ GET https://apiauto.ru/1.0/feeds/history/{[task_id](*task_id)}
 
 [*page_size]: {% include notitle [page_size](../_includes/popups-00286d1be377.md#page_size) %}
 
+## Расшифровка полей ответа {#field-descriptions}
+
+> Ниже — описания полей, подставленные вручную с живой страницы документации (2026-09-11). В исходном экспорте эти поля были нерасшифрованными `{% include %}`-ссылками. Плоский список по мере встречаемости в структуре ответа; повторяющиеся блоки (car_info/truck_info/moto_info) описаны один раз.
+
+**Верхний уровень**
+
+- `category` — Категория транспортного средства (ТС).
+- `task` — Информация о задаче на ручную загрузку прайс-листа.
+  - `task.id` — Идентификатор задачи.
+  - `task.created_at` / `task.finished_at` — Дата создания/окончания задачи в формате ISO 8601 со смещением относительно UTC. Например, `2017-07-08T11:29:16+03:00`.
+  - `task.type` — Тип загрузки прайс-листа. Параметр не выводится при использовании ручной загрузки.
+  - `task.status` — Статус задачи (в примере встречается `FAILURE`).
+  - `task.settings` — Настройки прайс-листа (`source`, `delete_sale`, `leave_services`, `leave_added_images`, `is_active` — см. feeds-settings.md).
+  - `task.count_offers` — Количество объявлений в прайс-листе.
+  - `task.count_errors` — Количество объявлений с ошибками (не обработаны).
+  - `task.count_notices` — Количество объявлений с предупреждениями.
+  - `task.count_offers_inserted` — Количество новых объявлений.
+  - `task.count_offers_updated` — Количество обновленных объявлений.
+  - `task.count_offers_deleted` — Количество удаленных объявлений.
+  - `task.count_offers_skipped` — Количество необновленных объявлений.
+  - `task.count_images` — Количество изображений в прайс-листе.
+  - `task.count_images_success` — Количество успешно добавленных изображений.
+  - `task.count_images_errors` — Количество незагруженных изображений.
+  - `task.count_success` — Количество успешно обработанных объявлений.
+- `pagination` — Параметры пагинации: `page` (номер текущей страницы, с 1), `page_size` (элементов на странице), `total_offers_count` (общее число объявлений), `total_page_count` (общее число страниц).
+- `filter.error_type` — Тип ошибки (фильтр запроса).
+- `offers[]` — Массив объявлений, для которых загружен прайс-лист.
+  - `offers[].position` — Позиция объявления в прайс-листе.
+  - `offers[].status` — Статус объявления.
+  - `offers[].offer_id` — Идентификатор объявления.
+  - `offers[].created_at` — Дата создания в формате ISO 8601 со смещением UTC.
+  - `offers[].vin` — VIN (идентификационный номер ТС).
+  - `offers[].unique_id` — Уникальный идентификатор для объявления в прайс-листе; передаётся, если у ТС отсутствует VIN.
+  - `offers[].errors[]` — Массив ошибок обработки: `type` (тип), `message` (текст ошибки/предупреждения), `created_at`, `field_name` (имя параметра-причины), `field_value` (значение параметра-причины).
+
+**`car_info` (легковой автомобиль)**
+
+- `armored` — Признак бронированного автомобиля.
+- `body_type` — Тип кузова. См. [body-type-dictionary.md](body-type-dictionary.md).
+- `engine_type` — Тип двигателя.
+- `transmission` — Тип коробки передач.
+- `drive` — Тип привода.
+- `mark` / `model` — Марка / модель.
+- `super_gen_id` — Идентификатор поколения.
+- `configuration_id` — Идентификатор конфигурации (см. `GET /search/cars/breadcrumbs`).
+- `tech_param_id` — Идентификатор набора технических характеристик (см. `GET /search/cars/breadcrumbs`).
+- `complectation_id` — Идентификатор комплектации (см. `GET /reference/catalog/cars/complectations`).
+- `equipment` — Опции комплектации, пары `{код опции}: {наличие}`. См. [catalog-equipment.md](catalog-equipment.md).
+- `manufacturer_info` — Данные по каталогу производителя: `modification_code`, `interior_code`, `color_code`, `equipment_code` (массив кодов опций).
+- `steering_wheel` — Расположение руля.
+- `horse_power` — Мощность двигателя, л.с.
+- `mark_info` / `model_info` — Код/название (рус.), логотип (`logo.name`, `logo.sizes` — размер→URL картинки), `country_id` (страна марки), `morphology.gender` (род названия модели).
+- `super_gen` — `id`, `name`, `year_from`/`year_to` (годы выпуска поколения; `year_to` пусто/0 — ещё выпускается), `price_segment`, `purpose_group`, `no_complect` (признак наличия комплектаций).
+- `configuration` — `configuration_id`, `doors_count`, `auto_class`, `human_name` (название кузова), `trunk_volume_min/max` (л), `notice` (название конфигурации на сайте), `length/width/height` (мм), `seats`, `main_photo`.
+- `tech_param` — `id`, `nameplate` (разновидность модели), `displacement` (см³), `engine_type`, `gear_type`, `transmission`, `power` (л.с.), `power_kvt`, `human_name`, `acceleration` (0-100 км/ч, сек), `clearance_min/max` (клиренс, мм).
+- `complectation` — `id`, `name`, `available_options`, `additional_options`, `price`, `aliases` (альтернативные названия).
+- `vendor` — Производитель.
+
+**`truck_info` (коммерческий транспорт)**
+
+- `truck_category` — Категория коммерческого транспорта.
+- `mark`/`model`/`displacement`/`horse_power` — как у легковых.
+- `loading` — Грузоподъёмность, кг.
+- `axis` — Количество осей.
+- `seats` — Количество мест.
+- `cabin` — Тип кабины.
+- `steering_wheel` / `engine` / `transmission` / `gear` — как у легковых (тип привода — `gear`).
+- `wheel_drive` — Колёсная формула.
+- `saddle_height` — Высота седельного устройства.
+- `brakes` — Тип тормозов.
+- `euro_class` — Экологический класс (евро-класс).
+- `cabin_suspension` / `suspension` / `chassis_suspension` — Тип подвески (кабины / общая / шасси).
+- `bus_type` — Тип автобуса.
+- `trailer_type` — Тип прицепа. См. [trailer-type-dictionary.md](trailer-type-dictionary.md).
+- `swap_body_type` — Тип съёмного кузова.
+- `truck_type` / `light_truck_type` / `agricultural_type` / `construction_type` / `autoloader_type` / `dredge_type` / `bulldozer_type` / `municipal_type` — Тип кузова по соответствующей подкатегории. См. [trucks-body-type-dictionary.md](trucks-body-type-dictionary.md).
+- `body_type` — Тип кузова автомобиля (общий). См. [body-type-dictionary.md](body-type-dictionary.md).
+- `equipment` — Опции. См. [catalog-equipment.md](catalog-equipment.md).
+- `operating_hours` — Моточасы.
+- `load_height` — Высота подъёма.
+- `crane_radius` — Вылет стрелы.
+- `bucket_volume` — Объём ковша.
+- `traction_class` — Тяговый класс.
+- `mark_info` / `model_info` — как у легковых.
+
+**`moto_info` (мототранспорт)**
+
+- `moto_category` — Категория мототранспорта.
+- `mark`/`model`/`displacement`/`horse_power`/`engine`/`transmission`/`gear` — как у грузовиков/легковых.
+- `moto_type` — Тип мотоцикла. См. [moto-type-dictionary.md](moto-type-dictionary.md).
+- `equipment` — Опции. См. [catalog-equipment.md](catalog-equipment.md).
+- `mark_info` / `model_info` — как у легковых.
+
+> Общее: во всех трёх блоках `logo.sizes` / `main_photo.sizes` — объект вида `"120x90": "//images.md.../120x90"` (размер картинки → URL); `country_id` — идентификатор страны марки (справочник регионов скачивается отдельно на сайте Авто.ру, ссылки на файл в этом экспорте нет).
+
 [*task_id]: Идентификатор задачи на ручную загрузку прайс-листа.

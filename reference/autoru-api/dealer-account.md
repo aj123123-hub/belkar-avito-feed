@@ -47,20 +47,41 @@ GET https://apiauto.ru/1.0/dealer/account
 
 ### Параметры ответа {#spec-output}
 
-<div class="params-table">
+#|
+||
+**Параметр**
+|
+**Описание**
+||
+||
+`account_id`
+|
+Номер счета дилера.
+||
+||
+`balance`
+|
+Баланс дилера в рублях.
+||
+||
+`dealer_status`
+|
+Статус аккаунта дилера. (В примере встречается значение `ACTIVE`.)
+||
+||
+`average_outcome`
+|
+Средний расход за последние 30 дней в рублях.
+||
+||
+`rest_days`
+|
+Количество оставшихся дней до окончания денежных средств, исходя из среднего расхода и остатка на кошельке.
+||
 
-{% include notitle [account_id](../_includes/params/dealer-account-669342ae8851.md#account_id) %}
+|#
 
-{% include notitle [balance](../_includes/params/dealer-account-669342ae8851.md#balance) %}
-
-{% include notitle [dealer_status](../_includes/params/dealer-account-669342ae8851.md#dealer_status) %}
-
-{% include notitle [average_outcome](../_includes/params/dealer-account-669342ae8851.md#average_outcome) %}
-
-{% include notitle [rest_days](../_includes/params/dealer-account-669342ae8851.md#rest_days) %}
-
-</div>
-
+> Описания полей выше подставлены вручную с живой страницы документации (2026-09-11).
 
 ## Коды ответа {#response-codes}
 
@@ -107,5 +128,3 @@ GET https://apiauto.ru/1.0/dealer/account
 >   "rest_days": 11
 > }                                      
 > ```
-
-{% include [table-style](../_includes/table-style-border-none-2a2aa0c324bf.md) %}

@@ -20,7 +20,13 @@ POST https://apiauto.ru/1.0/feeds/task/cars/[section](*section)
 
 <div class="params-table">
 
-{% include [section](../_includes/params/search-cars-27f675438c04.md#section) %}
+#|
+||
+##section##
+|
+Состояние транспортного средства. Допустимые значения: `NEW` — новое транспортное средство; `USED` — транспортное средство с пробегом (б/у).
+||
+|#
 
 </div>
 
@@ -57,7 +63,7 @@ POST https://apiauto.ru/1.0/feeds/task/cars/[section](*section)
 || ##settings## | Настройки прайс-листа. ||
 |#
 
- 
+ 
 :   #|
     || ##source## | Ссылка на загрузку прайс-листа. ||
     |#
@@ -92,7 +98,7 @@ POST https://apiauto.ru/1.0/feeds/task/cars/[section](*section)
   "finished_at": {string},
   "type": {string},
   "status": {string},
-    "[settings](*settings-p)": {
+    "settings": {
       "source": {string},
       "delete_sale": {boolean},
       "leave_services": {boolean},
@@ -112,55 +118,126 @@ POST https://apiauto.ru/1.0/feeds/task/cars/[section](*section)
 }
 ```
 
-<div class="params-table">
+#|
+||
+**Параметр**
+|
+**Описание**
+||
+||
+`id`
+|
+Идентификатор задачи на ручную загрузку прайс-листа.
+||
+||
+`created_at`
+|
+Дата создания задачи в формате ISO 8601 со смещением относительно UTC. Например, `2017-07-08T11:29:16+03:00`.
+||
+||
+`finished_at`
+|
+Дата окончания задачи в формате ISO 8601 со смещением относительно UTC. Например, `2017-07-08T11:29:16+03:00`.
+||
+||
+`type`
+|
+Тип загрузки прайс-листа. Параметр не выводится при использовании ручной загрузки. (В примерах встречается значение `AUTOMATIC`.)
+||
+||
+`status`
+|
+Статус задачи на ручную загрузку прайс-листа. (В примерах встречаются значения `NEW`, `FAILURE`.)
+||
+||
+`settings`
+|
+Настройки прайс-листа.
+||
+||
+`settings.source`
+|
+Ссылка на загрузку прайс-листа.
+||
+||
+`settings.delete_sale`
+|
+Признак. Удалять объявления, которые были созданы вручную или отсутствуют в прайс-листе.
+||
+||
+`settings.leave_services`
+|
+Признак. Не удалять услуги объявлений, если они не были переданы в прайс-листе.
+||
+||
+`settings.leave_added_images`
+|
+Признак. Не удалять загруженные вручную фотографии, если они не были переданы в прайс-листе.
+||
+||
+`settings.is_active`
+|
+Признак. Активна или нет загрузка данного прайс-листа.
+||
+||
+`count_offers`
+|
+Количество объявлений в прайс-листе.
+||
+||
+`count_errors`
+|
+Количество объявлений с ошибками (объявления, которые не были обработаны).
+||
+||
+`count_notices`
+|
+Количество объявлений с предупреждениями.
+||
+||
+`count_offers_inserted`
+|
+Количество новых объявлений.
+||
+||
+`count_offers_updated`
+|
+Количество обновленных объявлений.
+||
+||
+`count_offers_deleted`
+|
+Количество удаленных объявлений.
+||
+||
+`count_offers_skipped`
+|
+Количество необновленных объявлений.
+||
+||
+`count_images`
+|
+Количество изображений в прайс-листе.
+||
+||
+`count_images_success`
+|
+Количество успешно добавленных изображений.
+||
+||
+`count_images_errors`
+|
+Количество незагруженных изображений.
+||
+||
+`count_success`
+|
+Количество успешно обработанных объявлений.
+||
 
-{% include notitle [id](../_includes/params/feeds-task-cars-section-786fcaab38bd.md#id) %}
+|#
 
-{% include notitle [created_at](../_includes/params/feeds-task-cars-section-786fcaab38bd.md#created_at) %}
-
-{% include notitle [finished_at](../_includes/params/feeds-task-cars-section-786fcaab38bd.md#finished_at) %}
-
-{% include notitle [type](../_includes/params/feeds-task-cars-section-786fcaab38bd.md#type) %}
-
-{% include notitle [status](../_includes/params/feeds-task-cars-section-786fcaab38bd.md#status) %}
-
- 
-:   {% include notitle [settings](../_includes/params/feeds-task-cars-section-786fcaab38bd.md#settings) %}
-    
-     
-    :   {% include notitle [source](../_includes/params/feeds-task-cars-section-786fcaab38bd.md#source) %}
-
-        {% include notitle [delete_sale](../_includes/params/feeds-task-cars-section-786fcaab38bd.md#delete_sale) %}
-
-        {% include notitle [leave_services](../_includes/params/feeds-task-cars-section-786fcaab38bd.md#leave_services) %}
-
-        {% include notitle [leave_added_images](../_includes/params/feeds-task-cars-section-786fcaab38bd.md#leave_added_images) %}
-
-        {% include notitle [is_active](../_includes/params/feeds-task-cars-section-786fcaab38bd.md#is_active) %}
-
-{% include notitle [count_offers](../_includes/params/feeds-task-cars-section-786fcaab38bd.md#count_offers) %}
-
-{% include notitle [count_errors](../_includes/params/feeds-task-cars-section-786fcaab38bd.md#count_errors) %}
-
-{% include notitle [count_notices](../_includes/params/feeds-task-cars-section-786fcaab38bd.md#count_notices) %}
-
-{% include notitle [count_offers_inserted](../_includes/params/feeds-task-cars-section-786fcaab38bd.md#count_offers_inserted) %}
-
-{% include notitle [count_offers_updated](../_includes/params/feeds-task-cars-section-786fcaab38bd.md#count_offers_updated) %}
-
-{% include notitle [count_offers_deleted](../_includes/params/feeds-task-cars-section-786fcaab38bd.md#count_offers_deleted) %}
-
-{% include notitle [count_offers_skipped](../_includes/params/feeds-task-cars-section-786fcaab38bd.md#count_offers_skipped) %}
-
-{% include notitle [count_images](../_includes/params/feeds-task-cars-section-786fcaab38bd.md#count_images) %}
-
-{% include notitle [count_images_success](../_includes/params/feeds-task-cars-section-786fcaab38bd.md#count_images_success) %}
-
-{% include notitle [count_images_errors](../_includes/params/feeds-task-cars-section-786fcaab38bd.md#count_images_errors) %}
-
-{% include notitle [count_success](../_includes/params/feeds-task-cars-section-786fcaab38bd.md#count_success) %}
-
-</div>
+> Описания полей выше подставлены вручную с живой страницы документации (2026-09-11).
 
 ## Коды ответа {#response-codes}
 
@@ -238,10 +315,3 @@ POST https://apiauto.ru/1.0/feeds/task/cars/[section](*section)
 >   "count_success": 0
 > }                                
 > ```
-
-
-{% include [table-style](../_includes/table-style-border-none-2a2aa0c324bf.md) %}
-
-[*section]: {% include notitle [section](../_includes/popups-00286d1be377.md#section) %}
-
-[*settings-p]: {% include notitle [settings-p](../_includes/popups-00286d1be377.md#settings-p) %}

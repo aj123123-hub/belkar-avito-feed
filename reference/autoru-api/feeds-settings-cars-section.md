@@ -20,7 +20,13 @@ POST https://apiauto.ru/1.0/feeds/settings/cars/[section](*section)
 
 <div class="params-table">
 
-{% include [section](../_includes/params/search-cars-27f675438c04.md#section) %}
+#|
+||
+##section##
+|
+Состояние транспортного средства. Допустимые значения: `NEW` — новое транспортное средство; `USED` — транспортное средство с пробегом (б/у).
+||
+|#
 
 </div>
 
