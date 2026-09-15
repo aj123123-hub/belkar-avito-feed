@@ -2,6 +2,7 @@
 import json
 import glob
 import subprocess
+import concurrent.futures
 import openpyxl
 
 # Поля, которые официально необязательные, но на практике Авито отклоняет
@@ -87,12 +88,16 @@ def main():
         raise SystemExit("Не собрано — обязательные-на-практике поля пусты:\n" + "\n".join(missing_required))
 
     print(f"Проверяю {len(all_photo_urls)} уникальных ссылок на фото вживую (curl)...")
-    bad_urls = []
-    for u in sorted(all_photo_urls):
+    def check_url(u):
         code = subprocess.run(["curl", "-s", "--max-time", "10", "-o", "/dev/null", "-w", "%{http_code}", u],
                                capture_output=True, text=True).stdout
-        if code != "200":
-            bad_urls.append(f"{code} {u}")
+        return u, code
+
+    bad_urls = []
+    with concurrent.futures.ThreadPoolExecutor(max_workers=20) as pool:
+        for u, code in pool.map(check_url, sorted(all_photo_urls)):
+            if code != "200":
+                bad_urls.append(f"{code} {u}")
     if bad_urls:
         raise SystemExit("Не собрано — битые ссылки на фото (сначала запушите фото, потом гоните фид):\n" + "\n".join(bad_urls))
     print("Все ссылки на фото живые (200).")
