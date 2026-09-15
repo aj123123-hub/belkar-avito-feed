@@ -91,7 +91,7 @@ def main():
     print(f"Проверяю {len(all_photo_urls)} уникальных ссылок на фото вживую (curl)...")
     bad_urls = []
     for u in sorted(all_photo_urls):
-        code = subprocess.run(["curl", "-s", "-o", "/dev/null", "-w", "%{http_code}", u],
+        code = subprocess.run(["curl", "-s", "--max-time", "10", "-o", "/dev/null", "-w", "%{http_code}", u],
                                capture_output=True, text=True).stdout
         if code != "200":
             bad_urls.append(f"{code} {u}")
