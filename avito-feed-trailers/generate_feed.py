@@ -1,7 +1,12 @@
 """Собирает fleet.xlsx для Авито Автозагрузки (категория «Прицепы») из всех active JSON-записей в data/."""
 import json
 import glob
+import subprocess
 import openpyxl
+
+# Поля, которые официально необязательные, но на практике Авито отклоняет
+# синхронизацию без них — см. feedback_verify_new_feed_before_push.
+REQUIRED_IN_PRACTICE = ['Цена в валюте']
 
 HEADERS = ['Адрес', 'Широта', 'Долгота', 'Уникальный идентификатор объявления', 'Начало размещения', 'Окончание размещения', 'Способ размещения', 'Услуга продвижения', 'Номер объявления на Авито', 'Контактное лицо', 'Номер телефона', 'Способ связи', 'Описание объявления', 'Категория', 'Цена', 'Зоны показа', 'Названия фото', 'Ссылки на фото', 'Ссылка на видео', 'Название объявления', 'Адрес стоянки', 'Интернет звонки', 'Устройства для приёма звонков', 'Вид техники', 'Валюта', 'НДС включён', 'Утильсбор включён', 'Цена в валюте', 'Доступность', 'Скидка за лизинг', 'Скидка при покупке от двух единиц', 'Скидка от дилера', 'Доставка', 'Установка дополнительного оборудования', 'Официальная гарантия', 'Дополнительные условия гарантии', 'Подарки', 'URL видеофайла', 'Состояние', 'Пробег', 'ПТС или ПСМ', 'Марка', 'Модель', 'Тип техники', 'Тип прицепа', 'Марка КМУ', 'Модель КМУ', 'VIN, номер кузова или SN', 'Год выпуска', 'Количество осей', 'Тип подвески', 'Тип тормозов', 'Грузоподъёмность в кг', 'Длина прицепа', 'Объём прицепа', 'TTL (Auction)', 'Цена (Auction)']
 
@@ -55,6 +60,8 @@ def main():
 
     count = 0
     r = 2
+    missing_required = []
+    all_photo_urls = set()
     for path in sorted(glob.glob("data/*.json")):
         with open(path, encoding="utf-8") as f:
             rec = json.load(f)
@@ -64,12 +71,31 @@ def main():
         if vin and vin in rec.get("description", ""):
             raise SystemExit(f"{path}: VIN {vin} попал в текст описания — уберите (VIN должен быть только в структурном поле)")
         values = build_row(rec)
+        row_map = dict(zip(HEADERS, values))
+        for field in REQUIRED_IN_PRACTICE:
+            if field in row_map and not str(row_map[field]).strip():
+                missing_required.append(f"{path}: пусто поле {field!r} (обязательно на практике)")
+        all_photo_urls.update(u for u in row_map.get('Ссылки на фото', '').split(' | ') if u)
         for c, v in enumerate(values, start=1):
             # требование Авито: все ячейки должны быть текстовым форматом
             cell = ws.cell(row=r, column=c, value=str(v) if v != "" else "")
             cell.number_format = "@"
         r += 1
         count += 1
+
+    if missing_required:
+        raise SystemExit("Не собрано — обязательные-на-практике поля пусты:\n" + "\n".join(missing_required))
+
+    print(f"Проверяю {len(all_photo_urls)} уникальных ссылок на фото вживую (curl)...")
+    bad_urls = []
+    for u in sorted(all_photo_urls):
+        code = subprocess.run(["curl", "-s", "-o", "/dev/null", "-w", "%{http_code}", u],
+                               capture_output=True, text=True).stdout
+        if code != "200":
+            bad_urls.append(f"{code} {u}")
+    if bad_urls:
+        raise SystemExit("Не собрано — битые ссылки на фото (сначала запушите фото, потом гоните фид):\n" + "\n".join(bad_urls))
+    print("Все ссылки на фото живые (200).")
 
     for col in ws.columns:
         length = max((len(str(c.value)) if c.value is not None else 0) for c in col)

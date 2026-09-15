@@ -6,7 +6,13 @@
 """
 import json
 import glob
+import subprocess
 import openpyxl
+
+# Поля, которые официально помечены необязательными, но на практике Авито
+# отклоняет синхронизацию без них — см. feedback_verify_new_feed_before_push
+# и project_belkar_avito_feed_pipeline (тот же баг уже был в других фидах).
+REQUIRED_IN_PRACTICE = ["Цена в валюте"]
 
 RAW_BASE = "https://raw.githubusercontent.com/aj123123-hub/belkar-avito-feed/main/avito-feed-construction/photos/"
 
@@ -145,6 +151,8 @@ def main():
         records_by_slug[slug].append((path, rec))
 
     total = 0
+    all_photo_urls = set()
+    missing_required = []
     for slug, (sheet_title, headers) in SHEETS.items():
         ws = wb.create_sheet(title=sheet_title)
         for c, h in enumerate(headers, start=1):
@@ -156,6 +164,11 @@ def main():
                 values = build_row_bulldozer(rec, headers)
             else:
                 values = build_row_excavator(rec, headers)
+            row_map = dict(zip(headers, values))
+            for field in REQUIRED_IN_PRACTICE:
+                if field in row_map and not str(row_map[field]).strip():
+                    missing_required.append(f"{path}: пусто поле {field!r} (обязательно на практике)")
+            all_photo_urls.update(u for u in row_map.get("Ссылки на фото", "").split(" | ") if u)
             for c, v in enumerate(values, start=1):
                 cell = ws.cell(row=r, column=c, value=str(v) if v != "" else "")
                 cell.number_format = "@"
@@ -165,6 +178,20 @@ def main():
             length = max((len(str(c.value)) if c.value is not None else 0) for c in col)
             ws.column_dimensions[col[0].column_letter].width = min(max(length + 2, 10), 40)
         print(f"{sheet_title}: {len(records_by_slug[slug])} объявлений")
+
+    if missing_required:
+        raise SystemExit("Не собрано — обязательные-на-практике поля пусты:\n" + "\n".join(missing_required))
+
+    print(f"\nПроверяю {len(all_photo_urls)} уникальных ссылок на фото вживую (curl)...")
+    bad_urls = []
+    for u in sorted(all_photo_urls):
+        code = subprocess.run(["curl", "-s", "-o", "/dev/null", "-w", "%{http_code}", u],
+                               capture_output=True, text=True).stdout
+        if code != "200":
+            bad_urls.append(f"{code} {u}")
+    if bad_urls:
+        raise SystemExit("Не собрано — битые ссылки на фото (сначала запушите фото, потом гоните фид):\n" + "\n".join(bad_urls))
+    print("Все ссылки на фото живые (200).")
 
     wb.save("fleet-construction.xlsx")
     print(f"\nfleet-construction.xlsx собран: {total} активных объявлений всего")
