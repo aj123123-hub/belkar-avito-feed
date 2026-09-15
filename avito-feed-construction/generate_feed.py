@@ -8,7 +8,7 @@ import json
 import glob
 import openpyxl
 
-RAW_BASE = "https://raw.githubusercontent.com/aj123123-hub/belkar-avito-feed/main/avito-feed-construction/"
+RAW_BASE = "https://raw.githubusercontent.com/aj123123-hub/belkar-avito-feed/main/avito-feed-construction/photos/"
 
 HEADERS_EXCAVATOR_TRACKED = [
     'Уникальный идентификатор объявления', 'Начало размещения', 'Окончание размещения',
