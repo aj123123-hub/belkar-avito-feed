@@ -1,0 +1,30 @@
+{
+  "id": "jonyang-jyl615fe-1640137",
+  "status": "active",
+  "address": "Москва, Ижорская ул., 15с2",
+  "vin": "1640137",
+  "psm_number": "364302005631564",
+  "price": 8800000,
+  "currency": "RUB",
+  "vat_included": false,
+  "availability": "В наличии",
+  "condition": "Новое",
+  "technical_passport": "В наличии",
+  "year": "2025",
+  "make": "Jonyang",
+  "model": "JYL615F-E",
+  "type_of_vehicle": "Колёсный экскаватор",
+  "power_kw": "110",
+  "title": "Экскаватор колёсный Jonyang JYL615F-E, новый, 2025",
+  "description": "Новый колёсный экскаватор Jonyang JYL615F-E, 2025 года выпуска, ещё не эксплуатировался. Колёсный ход — самостоятельно доезжает между объектами по дорогам общего пользования, не нужен трал под каждый переезд, как с гусеничной техникой. Ковш 0,6 м³, глубина копания 4,87 м — удобный размер для городских коммуникаций, благоустройства, работ в стеснённых условиях. Двигатель Cummins на 110 кВт, автоматическая трансмиссия, полный привод 4x4. Кабина с кондиционером, сертификация EAC.",
+  "photos": [
+    "jonyang-jyl615fe/0d316b82-9b0e-4637-bafa-900ae468a21d.JPG",
+    "jonyang-jyl615fe/208fce80-93d8-4b35-b5f6-9d5ded06641e.JPG",
+    "jonyang-jyl615fe/4ab5a6ca-48a0-4bdf-82e9-b37e2b4fc552.JPG"
+  ],
+  "internal_notes": "",
+  "operating_weight": "14500",
+  "digging_depth": "4870",
+  "bucket_volume": "0.6",
+  "category_slug": "kolyosnye_drugie"
+}

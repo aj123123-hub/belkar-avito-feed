@@ -1,0 +1,31 @@
+{
+  "id": "jonyang-jy220c-nch",
+  "status": "active",
+  "address": "Москва, Ижорская ул., 15с2",
+  "vin": "",
+  "psm_number": "",
+  "price": 19900000,
+  "currency": "RUB",
+  "vat_included": false,
+  "availability": "В наличии",
+  "condition": "Новое",
+  "technical_passport": "Нет",
+  "year": "2025",
+  "make": "Jonyang",
+  "model": "JY220С",
+  "type_of_vehicle": "Гусеничный",
+  "power_kw": "187",
+  "title": "Бульдозер гусеничный Jonyang JY220C, новый, 2025",
+  "description": "Новый гусеничный бульдозер Jonyang JY220C, 2025 года выпуска, ещё не эксплуатировался. Полная масса в базовой комплектации около 26 тонн, отвал шириной 3,73 м и объёмом 7,8 м³ — для планировки площадок, расчистки, перемещения больших объёмов грунта. Есть задний рыхлитель, глубина рыхления 695 мм — берёт мёрзлый и плотный грунт без предварительного вскрытия экскаватором. Двигатель Cummins NT855 мощностью 187 кВт, тяговое усилие 203 кН. Полноразмерная кабина ROPS с кондиционером. Сертификация EAC.",
+  "photos": [
+    "jonyang-jy220c/43353c14-92c6-438c-a3d0-b4e19e3b9049.JPG",
+    "jonyang-jy220c/ba477ea8-5aaf-496c-be56-55b5e465cf2b.JPG",
+    "jonyang-jy220c/8c27eb73-6266-41aa-9c02-f632a6236088.JPG"
+  ],
+  "internal_notes": " | физически в Набережных Челнах, не в Чехове",
+  "bulldozer_weight": "26125",
+  "bulldozer_max_depth": "695",
+  "bulldozer_pulling_force": "203",
+  "cutting_edge_width": "3725",
+  "category_slug": "buldozery"
+}

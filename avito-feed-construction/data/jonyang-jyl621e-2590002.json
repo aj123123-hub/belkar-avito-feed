@@ -1,0 +1,29 @@
+{
+  "id": "jonyang-jyl621e-2590002",
+  "status": "active",
+  "address": "Москва, Ижорская ул., 15с2",
+  "vin": "2590002",
+  "psm_number": "364302005631586",
+  "price": 11800000,
+  "currency": "RUB",
+  "vat_included": false,
+  "availability": "В наличии",
+  "condition": "Новое",
+  "technical_passport": "В наличии",
+  "year": "2025",
+  "make": "Jonyang",
+  "model": "JYL621E",
+  "type_of_vehicle": "Колёсный экскаватор",
+  "power_kw": "133",
+  "title": "Экскаватор колёсный Jonyang JYL621E, новый, 2025",
+  "description": "Новый колёсный экскаватор Jonyang JYL621E, 2025 года выпуска, ещё не эксплуатировался. Следующий класс после JYL615F-E: ковш 1 м³, глубина копания 5,9 м, максимальный радиус копания 9,6 м — при этом остаётся колёсным, сам добирается до объекта своим ходом. Двигатель Cummins на 133 кВт, трансмиссия с переключением под нагрузкой. Кабина с кондиционером, сертификация EAC.",
+  "photos": [
+    "jonyang-jyl621e/cff79444-c088-4e67-9215-e825d2b7c435.JPG",
+    "jonyang-jyl621e/376c62de-5217-4f96-9d27-8bd3fa1f4723.JPG"
+  ],
+  "internal_notes": "",
+  "operating_weight": "22300",
+  "digging_depth": "5915",
+  "bucket_volume": "1.0",
+  "category_slug": "kolyosnye_drugie"
+}
