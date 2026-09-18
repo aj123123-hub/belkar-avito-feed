@@ -1,11 +1,11 @@
 {
   "id": "interpricep-853372-halfpipe",
   "status": "active",
-  "vin": "",
+  "vin": "EAR853372R0000830",
   "make": "ИнтерПрицеп",
   "model": "853372",
   "trailer_type": "Самосвальный",
-  "year": 2026,
+  "year": 2024,
   "axles": 4,
   "suspension": "Пневматическая",
   "brakes": "Барабанные",
