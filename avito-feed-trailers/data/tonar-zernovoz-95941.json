@@ -11,6 +11,7 @@
   "axles": 3,
   "volume_m3": 50,
   "payload_kg": 31000,
+  "length_mm": 12166,
   "pts_or_psm": "В наличии",
   "currency": "RUB",
   "vat_included": false,

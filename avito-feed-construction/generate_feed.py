@@ -17,6 +17,12 @@ REQUIRED_IN_PRACTICE = ["Цена в валюте"]
 
 RAW_BASE = "https://raw.githubusercontent.com/aj123123-hub/belkar-avito-feed/main/avito-feed-construction/photos/"
 
+# Координаты подтверждённого адреса стоянки (Москва, Ижорская ул., 15с2) — заданы явно,
+# чтобы не зависеть от геокодинга Авито по тексту адреса (см. инцидент 2026-09-03,
+# project_belkar_avito_feed_pipeline: несовпадение текста адреса увело объявление на другую улицу).
+ADDRESS_LAT = "55.8958019"
+ADDRESS_LON = "37.5237956"
+
 HEADERS_EXCAVATOR_TRACKED = [
     'Уникальный идентификатор объявления', 'Начало размещения', 'Окончание размещения',
     'Способ размещения', 'Услуга продвижения', 'Номер объявления на Авито', 'Контактное лицо',
@@ -69,6 +75,8 @@ def build_row_excavator(rec, headers):
         'Контактное лицо': rec.get("manager_name", ""),
         'Номер телефона': rec.get("phone", ""),
         'Адрес': rec["address"],
+        'Широта': ADDRESS_LAT,
+        'Долгота': ADDRESS_LON,
         'Способ связи': 'По телефону и в сообщениях',
         'Описание объявления': rec["description"],
         'Категория': 'Грузовики и спецтехника',
@@ -104,6 +112,8 @@ def build_row_bulldozer(rec, headers):
         'Контактное лицо': rec.get("manager_name", ""),
         'Номер телефона': rec.get("phone", ""),
         'Адрес': rec["address"],
+        'Широта': ADDRESS_LAT,
+        'Долгота': ADDRESS_LON,
         'Способ связи': 'По телефону и в сообщениях',
         'Описание объявления': rec["description"],
         'Категория': 'Грузовики и спецтехника',

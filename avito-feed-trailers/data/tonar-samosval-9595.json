@@ -11,6 +11,7 @@
   "brakes": "Барабанные",
   "payload_kg": 30000,
   "volume_m3": 33.6,
+  "length_mm": 10110,
   "pts_or_psm": "В наличии",
   "currency": "RUB",
   "vat_included": false,

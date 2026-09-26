@@ -13,6 +13,12 @@ HEADERS = ['Уникальный идентификатор объявления
 
 RAW_BASE = "https://raw.githubusercontent.com/aj123123-hub/belkar-avito-feed/main/avito-feed/"
 
+# Координаты подтверждённого адреса стоянки (Москва, Ижорская ул., 15с2) — заданы явно,
+# чтобы не зависеть от геокодинга Авито по тексту адреса (см. инцидент 2026-09-03,
+# project_belkar_avito_feed_pipeline: несовпадение текста адреса увело объявление на другую улицу).
+ADDRESS_LAT = "55.8958019"
+ADDRESS_LON = "37.5237956"
+
 def build_row(rec):
     photo_urls = " | ".join(RAW_BASE + p for p in rec.get("photos", []))
     row = {
@@ -26,6 +32,8 @@ def build_row(rec):
         'Цена в валюте': rec["price"],
         'Ссылки на фото': photo_urls,
         'Адрес': rec["address"],
+        'Широта': ADDRESS_LAT,
+        'Долгота': ADDRESS_LON,
         'Адрес стоянки': rec["address"],
         'Марка': rec["make"],
         'Тип кузова': rec["body_type"],
