@@ -1,0 +1,71 @@
+{
+  "id": "lexus-rx500h",
+  "status": "active",
+  "vin": "ZZPENDINGLEXUSRX500H",
+  "make": "Lexus",
+  "model": "RX",
+  "generation": "V (2022—2026)",
+  "generation_id": "18183380",
+  "modification": "RX 500H 2.4 4WD AT (371 л.с.)",
+  "modification_id": "18311989",
+  "complectation": "F Sport",
+  "complectation_id": "18619795",
+  "trim_text": "F Sport",
+  "fuel_type": "Гибрид",
+  "fuel_type_id": "331249",
+  "drive_type": "Полный",
+  "drive_type_id": "331253",
+  "transmission": "Автомат",
+  "transmission_id": "331255",
+  "power_hp": "371",
+  "power_id": "331661",
+  "engine_size_l": "2.4",
+  "engine_size_id": "331775",
+  "body_type": "Внедорожник",
+  "body_type_id": "331231",
+  "doors": "5",
+  "doors_id": "331245",
+  "year": 2026,
+  "mileage_km": 0,
+  "availability": "В пути",
+  "color": "Белый",
+  "color_text": "белый",
+  "interior": "Кожа",
+  "interior_color": "Тёмный",
+  "currency": "RUB",
+  "vat_included": true,
+  "price": 14994000,
+  "address": "Москва, Ижорская ул., 15с2",
+  "manager_name": "",
+  "phone": "",
+  "title": "Lexus RX500h",
+  "description": "Lexus RX500h\n\nГод выпуска: 2026. Пробег: новый, под заказ.\nКомплектация: F Sport.\nДвигатель: 2.4 л, 371 л.с., Гибрид.\n\nОснащение:\nСветодиодная оптика\nПанорамная крыша\nЧёрный потолок\nПремиальная аудиосистема Mark Levinson\nПроекция\nАдаптивный круиз-контроль\nКамеры 360\nПодогрев и вентиляция всех сидений\nМногозонный климат-контроль\nЭлектрорегулировка и обогрев руля\nБеспроводная зарядка",
+  "photos": [
+    "photos/lexus-rx500h/01.jpeg",
+    "photos/lexus-rx500h/02.jpeg",
+    "photos/lexus-rx500h/03.jpeg",
+    "photos/lexus-rx500h/04.jpeg",
+    "photos/lexus-rx500h/05.jpeg",
+    "photos/lexus-rx500h/06.jpeg",
+    "photos/lexus-rx500h/07.jpeg"
+  ],
+  "promotion": "",
+  "note": "",
+  "lights": "Светодиодные",
+  "interior_options": [
+    "Люк"
+  ],
+  "driving_assistance": [
+    "Круиз-контроль",
+    "Камера заднего вида"
+  ],
+  "heating": [
+    "Передних сидений",
+    "Задних сидений",
+    "Руля"
+  ],
+  "climate_control": "Климат-контроль многозонный",
+  "electric_drive": [
+    "Рулевой колонки"
+  ]
+}

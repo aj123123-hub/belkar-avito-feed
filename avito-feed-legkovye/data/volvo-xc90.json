@@ -1,0 +1,72 @@
+{
+  "id": "volvo-xc90",
+  "status": "active",
+  "vin": "ZZPENDINGVOLVOXC90",
+  "make": "Volvo",
+  "model": "XC90",
+  "generation": "II рестайлинг 2 (2024—2026)",
+  "generation_id": "22093335",
+  "modification": "2.0 B5 4WD AT (250 л.с.)",
+  "modification_id": "22093336",
+  "complectation": "Ultra",
+  "complectation_id": "22093339",
+  "trim_text": "Ultra",
+  "fuel_type": "Бензин",
+  "fuel_type_id": "331247",
+  "drive_type": "Полный",
+  "drive_type_id": "331253",
+  "transmission": "Автомат",
+  "transmission_id": "331255",
+  "power_hp": "250",
+  "power_id": "331357",
+  "engine_size_l": "2.0",
+  "engine_size_id": "331805",
+  "body_type": "Внедорожник",
+  "body_type_id": "331231",
+  "doors": "5",
+  "doors_id": "331245",
+  "year": 2026,
+  "mileage_km": 0,
+  "availability": "В пути",
+  "color": "Чёрный",
+  "color_text": "—",
+  "interior": "Кожа",
+  "interior_color": "Тёмный",
+  "currency": "RUB",
+  "vat_included": true,
+  "price": 10200000,
+  "address": "Москва, Ижорская ул., 15с2",
+  "manager_name": "",
+  "phone": "",
+  "title": "Volvo XC90",
+  "description": "Volvo XC90\n\nГод выпуска: 2026. Пробег: новый, под заказ.\nКомплектация: Ultra.\nДвигатель: 2.0 л, 250 л.с., Бензин.\n\nОснащение:\nМатричные светодиодные фары\nПанорамная крыша\nСалон из перфорированной кожи Nappa\nПремиальная аудиосистема Bowers & Wilkins\nВентиляция и массаж передних сидений\nЭлектрорегулировка и память положения передних сидений\nПодогрев передних и задних сидений\nМногозонный климат-контроль\nСолнцезащитные шторки в задних дверях\nПроекционный дисплей\nКамеры кругового обзора 360\nБесключевой доступ\nБеспроводная зарядка\nАдаптивный круиз-контроль",
+  "photos": [
+    "photos/volvo-xc90/01.jpeg",
+    "photos/volvo-xc90/02.jpeg",
+    "photos/volvo-xc90/03.jpeg",
+    "photos/volvo-xc90/04.jpeg",
+    "photos/volvo-xc90/05.jpeg",
+    "photos/volvo-xc90/06.jpeg",
+    "photos/volvo-xc90/07.jpeg"
+  ],
+  "promotion": "",
+  "note": "Мощность не указана в исходном тексте — выбран B5 250 л.с. (самый частый вариант с Ultra), НЕ ПОДТВЕРЖДЕНО — сверить с ПТС/шильдиком (B5 vs B6) перед публикацией.",
+  "lights": "Светодиодные",
+  "interior_options": [
+    "Люк"
+  ],
+  "heating": [
+    "Передних сидений",
+    "Задних сидений"
+  ],
+  "electric_drive": [
+    "Передних сидений"
+  ],
+  "memory_settings": [
+    "Передних сидений"
+  ],
+  "driving_assistance": [
+    "Круиз-контроль",
+    "Камера заднего вида"
+  ]
+}

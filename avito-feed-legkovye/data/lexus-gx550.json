@@ -1,0 +1,69 @@
+{
+  "id": "lexus-gx550",
+  "status": "active",
+  "vin": "ZZPENDINGLEXUSGX550",
+  "make": "Lexus",
+  "model": "GX",
+  "generation": "J310 (2023—2026)",
+  "generation_id": "18663226",
+  "modification": "GX 550 3.4 4WD AT (354 л.с.)",
+  "modification_id": "18663227",
+  "complectation": "Executive",
+  "complectation_id": "22174150",
+  "trim_text": "Executive",
+  "fuel_type": "Бензин",
+  "fuel_type_id": "331247",
+  "drive_type": "Полный",
+  "drive_type_id": "331253",
+  "transmission": "Автомат",
+  "transmission_id": "331255",
+  "power_hp": "354",
+  "power_id": "331352",
+  "engine_size_l": "3.4",
+  "engine_size_id": "331812",
+  "body_type": "Внедорожник",
+  "body_type_id": "331231",
+  "doors": "5",
+  "doors_id": "331245",
+  "year": 2026,
+  "mileage_km": 0,
+  "availability": "В пути",
+  "color": "Серый",
+  "color_text": "серый",
+  "interior": "Кожа",
+  "interior_color": "Тёмный",
+  "currency": "RUB",
+  "vat_included": true,
+  "price": 17136000,
+  "address": "Москва, Ижорская ул., 15с2",
+  "manager_name": "",
+  "phone": "",
+  "title": "Lexus GX550",
+  "description": "Lexus GX550\n\nГод выпуска: 2026. Пробег: новый, под заказ.\nКомплектация: Executive.\nДвигатель: 3.4 л, 354 л.с., Бензин.\n\nОснащение:\nСветодиодная оптика\nЛюк\nАдаптивный круиз-контроль\nКамера заднего вида\nВентиляция и подогрев передних сидений\nПамять положения сиденья водителя\nМногозонный климат-контроль\nБеспроводная зарядка\nЭлектропривод багажника",
+  "photos": [
+    "photos/lexus-gx550/01.jpeg",
+    "photos/lexus-gx550/02.jpeg",
+    "photos/lexus-gx550/03.jpeg",
+    "photos/lexus-gx550/04.jpeg",
+    "photos/lexus-gx550/05.jpeg",
+    "photos/lexus-gx550/06.jpeg",
+    "photos/lexus-gx550/07.jpeg"
+  ],
+  "promotion": "",
+  "note": "",
+  "lights": "Светодиодные",
+  "interior_options": [
+    "Люк"
+  ],
+  "driving_assistance": [
+    "Круиз-контроль",
+    "Камера заднего вида"
+  ],
+  "heating": [
+    "Передних сидений"
+  ],
+  "memory_settings": [
+    "Передних сидений"
+  ],
+  "climate_control": "Климат-контроль многозонный"
+}

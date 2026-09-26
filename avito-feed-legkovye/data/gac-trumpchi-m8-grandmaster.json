@@ -1,0 +1,70 @@
+{
+  "id": "gac-trumpchi-m8-grandmaster",
+  "status": "active",
+  "vin": "ZZPENDINGGACTRUMPCHIM8G",
+  "make": "Trumpchi",
+  "model": "M8",
+  "generation": "II (2022—2026)",
+  "generation_id": "18575305",
+  "modification": "2.0hyb AT (190 л.с.)",
+  "modification_id": "18575306",
+  "complectation": "Royal Extreme Edition",
+  "complectation_id": "18590909",
+  "trim_text": "Grandmaster / Royal Edition",
+  "fuel_type": "Гибрид",
+  "fuel_type_id": "331249",
+  "drive_type": "Передний",
+  "drive_type_id": "331251",
+  "transmission": "Автомат",
+  "transmission_id": "331255",
+  "power_hp": "190",
+  "power_id": "331402",
+  "engine_size_l": "2.0",
+  "engine_size_id": "331805",
+  "body_type": "Минивэн",
+  "body_type_id": "331235",
+  "doors": "5",
+  "doors_id": "331245",
+  "year": 2026,
+  "mileage_km": 0,
+  "availability": "В пути",
+  "color": "Чёрный",
+  "color_text": "—",
+  "interior": "Кожа",
+  "interior_color": "Тёмный",
+  "currency": "RUB",
+  "vat_included": true,
+  "price": 5500000,
+  "address": "Москва, Ижорская ул., 15с2",
+  "manager_name": "",
+  "phone": "",
+  "title": "GAC Trumpchi M8 Grandmaster",
+  "description": "GAC Trumpchi M8 Grandmaster\n\nГод выпуска: 2026. Пробег: новый, под заказ.\nКомплектация: Grandmaster / Royal Edition.\nДвигатель: 2.0 л, 190 л.с., Гибрид.\n\nОснащение:\nСветодиодные фары\nПанорамная крыша\nТри ряда сидений (7 мест)\nМногозонный климат-контроль\nДекоративная подсветка салона\nКапитанские сиденья 2-го ряда с электрорегулировкой, массажем, вентиляцией и подогревом\nЭлектрорегулировка, массаж, подогрев и вентиляция передних сидений\nСкладные столики для пассажиров\nСолнцезащитные шторки для пассажиров 2-го ряда\nКамеры кругового обзора 360\nАдаптивный круиз-контроль",
+  "photos": [
+    "photos/gac-trumpchi-m8-grandmaster/01.jpeg",
+    "photos/gac-trumpchi-m8-grandmaster/02.jpeg",
+    "photos/gac-trumpchi-m8-grandmaster/03.jpeg",
+    "photos/gac-trumpchi-m8-grandmaster/04.jpeg",
+    "photos/gac-trumpchi-m8-grandmaster/05.jpeg",
+    "photos/gac-trumpchi-m8-grandmaster/06.jpeg"
+  ],
+  "promotion": "",
+  "note": "Комплектация в тексте была 'Royal Edition', в каталоге для актуального гибридного поколения — 'Royal Extreme Edition' (190 л.с., 2.0 гибрид). Артём подтвердил, что подходит.",
+  "lights": "Светодиодные",
+  "interior_options": [
+    "Люк"
+  ],
+  "climate_control": "Климат-контроль многозонный",
+  "heating": [
+    "Передних сидений",
+    "Задних сидений"
+  ],
+  "electric_drive": [
+    "Передних сидений",
+    "Задних сидений"
+  ],
+  "driving_assistance": [
+    "Круиз-контроль",
+    "Камера заднего вида"
+  ]
+}

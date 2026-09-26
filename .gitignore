@@ -3,3 +3,5 @@
 specavto-feed/.auth/
 specavto-feed/scripts/node_modules/
 reference/dst-chekhov-2026-08-20/ДСТ_и_краны_Jonyang_ссб_торна.pdf
+reference/avito_legkovye_raw_catalog/
+venv/

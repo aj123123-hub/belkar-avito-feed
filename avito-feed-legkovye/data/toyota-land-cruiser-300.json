@@ -1,0 +1,74 @@
+{
+  "id": "toyota-land-cruiser-300",
+  "status": "active",
+  "vin": "ZZPENDINGTOYOTALANDCRUI",
+  "make": "Toyota",
+  "model": "Land Cruiser",
+  "generation": "300 рестайлинг (2025—2026)",
+  "generation_id": "22370167",
+  "modification": "3.3 D AT (307 л.с.)",
+  "modification_id": "22393858",
+  "complectation": "Premium",
+  "complectation_id": "22393859",
+  "trim_text": "GR Sport (по факту авто) / Premium (по каталогу)",
+  "fuel_type": "Дизель",
+  "fuel_type_id": "331248",
+  "drive_type": "Полный",
+  "drive_type_id": "331253",
+  "transmission": "Автомат",
+  "transmission_id": "331255",
+  "power_hp": "307",
+  "power_id": "331587",
+  "engine_size_l": "3.3",
+  "engine_size_id": "331821",
+  "body_type": "Внедорожник",
+  "body_type_id": "331231",
+  "doors": "5",
+  "doors_id": "331245",
+  "year": 2026,
+  "mileage_km": 0,
+  "availability": "В пути",
+  "color": "Чёрный",
+  "color_text": "—",
+  "interior": "Кожа",
+  "interior_color": "Тёмный",
+  "currency": "RUB",
+  "vat_included": true,
+  "price": 14500000,
+  "address": "Москва, Ижорская ул., 15с2",
+  "manager_name": "",
+  "phone": "",
+  "title": "Toyota Land Cruiser 300 Рестайлинг",
+  "description": "Toyota Land Cruiser 300 Рестайлинг\n\nГод выпуска: 2026. Пробег: новый, под заказ.\nКомплектация: GR Sport (по факту авто) / Premium (по каталогу).\nДвигатель: 3.3 л, 307 л.с., Дизель.\n\nОснащение:\nСпортивный обвес GR Sport\nСветодиодная оптика\nПремиальный звук JBL\n4-зонный климат-контроль\nПодогрев и вентиляция сидений обоих рядов\nПамять положения сиденья водителя\nЭлектрорегулировка и обогрев руля\nКамеры 360\nАдаптивный круиз-контроль\nПроекционный дисплей\nБеспроводная зарядка\nЗадние мониторы\nЭлектропривод багажника",
+  "photos": [
+    "photos/toyota-land-cruiser-300/01.jpeg",
+    "photos/toyota-land-cruiser-300/02.jpeg",
+    "photos/toyota-land-cruiser-300/03.jpeg",
+    "photos/toyota-land-cruiser-300/04.jpeg",
+    "photos/toyota-land-cruiser-300/05.jpeg",
+    "photos/toyota-land-cruiser-300/06.jpeg",
+    "photos/toyota-land-cruiser-300/07.jpeg"
+  ],
+  "promotion": "",
+  "note": "В каталоге Авито для поколения «300 рестайлинг» дизель числится только с комплектацией Premium (GR Sport есть только у ПРЕДыдущего поколения). Артём подтвердил: вписываем Premium, поколение рестайлинг.",
+  "lights": "Светодиодные",
+  "climate_control": "Климат-контроль многозонный",
+  "heating": [
+    "Передних сидений",
+    "Задних сидений",
+    "Руля"
+  ],
+  "memory_settings": [
+    "Передних сидений"
+  ],
+  "electric_drive": [
+    "Рулевой колонки"
+  ],
+  "driving_assistance": [
+    "Круиз-контроль",
+    "Камера заднего вида"
+  ],
+  "multimedia": [
+    "Видео"
+  ]
+}
