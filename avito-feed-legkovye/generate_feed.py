@@ -76,39 +76,36 @@ def build_row(rec):
 
 
 def main():
-    wb = openpyxl.Workbook()
-    ws = wb.active
-    ws.title = "Объявления"
-    for c, h in enumerate(HEADERS, start=1):
-        cell = ws.cell(row=1, column=c, value=h)
-        cell.number_format = "@"
-
-    count = 0
-    r = 2
-    missing_required = []
+    """Заполняет официальный шаблон Авито (template.xlsx, «Автомобили - Новые»): строка 1 — название
+    категории, строка 2 — теги, данные с 5-й строки. Без такой структуры Авито не определяет категорию
+    ('Категория: не задана', 2026-09-29). Мульти-значения — через «|»."""
+    import generate_xml as gx
+    tag_of = dict(gx.TAGS, **gx.MULTI)
+    tag_of['Ссылки на фото'] = 'ImageUrls'
+    wb = openpyxl.load_workbook("template.xlsx")
+    ws = wb["Объявления"]
+    cols = {c.value: i for i, c in enumerate(ws[2], start=1) if c.value}
+    r, count, problems = 5, 0, []
     for path in sorted(glob.glob("data/*.json")):
-        with open(path, encoding="utf-8") as f:
-            rec = json.load(f)
+        rec = json.load(open(path, encoding="utf-8"))
         if rec.get("status") != "active":
             continue
         if not rec.get("vin"):
-            missing_required.append(f"{path}: VIN не заполнен — Авито отклонит синхронизацию без VIN или номера кузова")
-        values = build_row(rec)
-        row_map = dict(zip(HEADERS, values))
-        for field in REQUIRED_IN_PRACTICE:
-            if field in row_map and not str(row_map[field]).strip():
-                missing_required.append(f"{path}: пусто поле {field!r} (обязательно на практике)")
-        for c, v in enumerate(values, start=1):
-            cell = ws.cell(row=r, column=c, value=v)
-            cell.number_format = "@"
+            problems.append(f"{path}: VIN не заполнен")
+        row = dict(zip(HEADERS, build_row(rec)))
+        for lab, tag in tag_of.items():
+            v = str(row.get(lab, "")).strip()
+            if lab in gx.MULTI.keys():
+                v = "|".join(x.strip() for x in v.split(",") if x.strip())
+            if v and tag in cols:
+                cell = ws.cell(row=r, column=cols[tag], value=v)
+                cell.number_format = "@"
         r += 1
         count += 1
-
-    if missing_required:
-        raise SystemExit("Есть карточки с проблемами, фид не собран:\n" + "\n".join(missing_required))
-
+    if problems:
+        raise SystemExit("\n".join(problems))
     wb.save("fleet-legkovye.xlsx")
-    print(f"Собрано {count} активных объявлений -> fleet-legkovye.xlsx")
+    print(f"Собрано {count} объявлений -> fleet-legkovye.xlsx")
 
 
 if __name__ == "__main__":
