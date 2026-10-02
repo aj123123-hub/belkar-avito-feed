@@ -22,6 +22,11 @@ DROP = {"AvitoStatus", "AvitoDateEnd", "СТАТУС", "БАЗА", "Заметк
 SKIP = {
     "gls-6": "Тонар 9598 — у авитолога «Снято с публикации», причина неизвестна",
     "gls-2": "Тонар T4-16V — дубль 8150616785, у этой строки длина 13 600 мм (это не 16-метровый прицеп)",
+    # Артём 10-02: сомнительные строки авитолога пока не публиковать
+    "gls-10": "контейнеровоз «99884», а модель в фиде 99883",
+    "gls-8": "птицевоз: в заголовке 98885, модель 98883",
+    "c_45": "МАЗ 544028: в заголовке 2024, в поле года 2025",
+    "p_14": "МАЗ 975800-2012: фото только на avito.ru, своей копии нет",
 }
 
 # Строки, где фото у авитолога на avito.ru (отдаёт 429) — берём копии из catalog-photos
@@ -42,6 +47,21 @@ DISCOUNT_10 = {"Бортовой", "Шторно-бортовой", "Шторн�
 DISCOUNT_5 = {"Контейнеровоз", "Лесовоз (сортиментовоз)", "Лесовоз"}
 
 
+def new_id(f, used):
+    """Новый Id: bk-<марка>-<модель>, при совпадении модели — плюс длина или порядковый номер."""
+    tr = {"Тонар": "tonar", "МАЗ": "maz", "ИнтерПрицеп": "interpricep"}
+    base = "bk-" + tr.get(f.get("Make"), "x") + "-" + re.sub(r"[^a-z0-9]+", "-", str(f.get("Model")).lower()).strip("-")
+    cand = base
+    if cand in used and f.get("TrailerLength"):
+        cand = f"{base}-{f['TrailerLength']}"
+    n = 2
+    while cand in used:
+        cand = f"{base}-{n}"
+        n += 1
+    used.add(cand)
+    return cand
+
+
 def rub(n):
     return f"{n:,}".replace(",", " ") + " ₽"
 
@@ -53,7 +73,7 @@ def price_block(make, trailer_type, price):
         pct = 10 if trailer_type in DISCOUNT_10 else 5 if trailer_type in DISCOUNT_5 else 0
         dealer = price * pct // 100
     lease = min(price // 10, 500_000) if make == "Тонар" else 0
-    lines = [f"• <strong>Цена по прайсу завода</strong>: {rub(price)} с НДС"]
+    lines = [f"• <strong>Цена по прайсу завода</strong>: {rub(price)}"]
     if dealer:
         lines.append(f"• <strong>Скидка от производителя {pct}%</strong>: −{rub(dealer)}")
     if lease:
@@ -87,6 +107,8 @@ def main():
     ws = openpyxl.load_workbook(SNAPSHOT).active
     rows = list(ws.iter_rows(values_only=True))
     hdr = rows[0]
+    used_ids = set()
+    shutil.rmtree(os.path.join(HERE, "data"), ignore_errors=True)
     os.makedirs(os.path.join(HERE, "data"), exist_ok=True)
     for r in rows[1:]:
         f = {h: v for h, v in zip(hdr, r) if h and h not in DROP and v not in (None, "")}
@@ -102,6 +124,11 @@ def main():
         dealer, lease, block = price_block(f.get("Make"), f.get("TypeOfTrailer"), price)
         f["Price"] = price
         f["CurrencyPrice"] = price
+        # Артём 10-02: цены без НДС, подарков нет, объявления новые (без привязки к старым AvitoId)
+        f["PriceWithVAT"] = "Нет"
+        f.pop("Gifts", None)
+        f.pop("AvitoId", None)
+        f["Id"] = new_id(f, used_ids)
         f.pop("DealerDiscount", None)
         f.pop("LeasingDiscount", None)
         if dealer:
@@ -131,7 +158,7 @@ def main():
         else:
             external = urls  # фото только на avito.ru и копии нет — оставляем ссылки Авито как есть
             os.rmdir(pdir)
-        rec = {"id": rid, "status": "active", "fields": f, "photos": photos, "external_photo_urls": external}
+        rec = {"id": f["Id"], "old_id": rid, "status": "active", "fields": f, "photos": photos, "external_photo_urls": external}
         with open(os.path.join(HERE, "data", f"{slug}.json"), "w", encoding="utf-8") as fh:
             json.dump(rec, fh, ensure_ascii=False, indent=1)
         print(f"{rid:28} {price:>9} dealer={dealer:>7} lease={lease:>7} photos={len(photos) or len(external)}{' (avito.ru)' if external else ''}")
