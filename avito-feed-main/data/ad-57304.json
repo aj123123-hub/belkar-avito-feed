@@ -1,5 +1,5 @@
 {
- "id": "bk-tonar-95941-12166",
+ "id": "ad-57304",
  "old_id": "ad-57304",
  "status": "active",
  "fields": {
@@ -34,7 +34,8 @@
   "TypeOfTrailer": "Зерновоз",
   "TypeOfVehicle": "Полуприцеп",
   "Year": 2026,
-  "Id": "bk-tonar-95941-12166",
+  "Id": "ad-57304",
+  "AvitoId": 8214338881,
   "LeasingDiscount": 500000
  },
  "photos": [

@@ -1,5 +1,5 @@
 {
- "id": "bk-tonar-sh3-33-95892",
+ "id": "novaia_19",
  "old_id": "novaia_19",
  "status": "active",
  "fields": {
@@ -35,7 +35,8 @@
   "TypeOfVehicle": "Полуприцеп",
   "Year": 2026,
   "AdditionalGuarantee": "Без ограничения по пробегу",
-  "Id": "bk-tonar-sh3-33-95892",
+  "Id": "novaia_19",
+  "AvitoId": 7382810433,
   "LeasingDiscount": 390000
  },
  "photos": [

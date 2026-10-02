@@ -1,5 +1,5 @@
 {
- "id": "bk-tonar-sp3-17",
+ "id": ",ekrfh0550",
  "old_id": ",ekrfh0550",
  "status": "active",
  "fields": {
@@ -35,7 +35,8 @@
   "TypeOfVehicle": "Прицеп",
   "Year": 2026,
   "AdditionalGuarantee": "Без ограничения по пробегу",
-  "Id": "bk-tonar-sp3-17",
+  "Id": ",ekrfh0550",
+  "AvitoId": 2678907239,
   "LeasingDiscount": 390000
  },
  "photos": [

@@ -1,5 +1,5 @@
 {
- "id": "bk-tonar-sl4-34g-9595",
+ "id": "gls-3",
  "old_id": "gls-3",
  "status": "active",
  "fields": {
@@ -35,7 +35,8 @@
   "TypeOfTrailer": "Самосвальный",
   "TypeOfVehicle": "Полуприцеп",
   "Year": 2026,
-  "Id": "bk-tonar-sl4-34g-9595",
+  "Id": "gls-3",
+  "AvitoId": 8182263799,
   "LeasingDiscount": 420000
  },
  "photos": [

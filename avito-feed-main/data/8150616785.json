@@ -1,5 +1,5 @@
 {
- "id": "bk-tonar-t4-16v",
+ "id": "8150616785",
  "old_id": "8150616785",
  "status": "active",
  "fields": {
@@ -36,7 +36,8 @@
   "TypeOfTrailer": "Шторно-бортовой",
   "TypeOfVehicle": "Полуприцеп",
   "Year": 2026,
-  "Id": "bk-tonar-t4-16v",
+  "Id": "8150616785",
+  "AvitoId": 8150616785,
   "DealerDiscount": 475000,
   "LeasingDiscount": 475000
  },

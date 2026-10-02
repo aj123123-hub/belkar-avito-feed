@@ -1,5 +1,5 @@
 {
- "id": "bk-tonar-k4-u-99894",
+ "id": "gls-12",
  "old_id": "gls-12",
  "status": "active",
  "fields": {
@@ -35,7 +35,8 @@
   "TypeOfTrailer": "Контейнеровоз",
   "TypeOfVehicle": "Полуприцеп",
   "Year": 2026,
-  "Id": "bk-tonar-k4-u-99894",
+  "Id": "gls-12",
+  "AvitoId": 8182793830,
   "DealerDiscount": 162500,
   "LeasingDiscount": 325000
  },

@@ -1,5 +1,5 @@
 {
- "id": "bk-tonar-l3-9445",
+ "id": "8118826997",
  "old_id": "8118826997",
  "status": "active",
  "fields": {
@@ -36,7 +36,8 @@
   "TypeOfTrailer": "Лесовоз (сортиментовоз)",
   "TypeOfVehicle": "Полуприцеп",
   "Year": 2026,
-  "Id": "bk-tonar-l3-9445",
+  "Id": "8118826997",
+  "AvitoId": 8118826997,
   "DealerDiscount": 160000,
   "LeasingDiscount": 320000
  },

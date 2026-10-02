@@ -1,5 +1,5 @@
 {
- "id": "bk-tonar-r3-13-13500",
+ "id": "ad-57373",
  "old_id": "ad-57373",
  "status": "active",
  "fields": {
@@ -36,7 +36,8 @@
   "TypeOfTrailer": "Рефрижератор",
   "TypeOfVehicle": "Полуприцеп",
   "Year": 2026,
-  "Id": "bk-tonar-r3-13-13500",
+  "Id": "ad-57373",
+  "AvitoId": 8214676066,
   "LeasingDiscount": 500000
  },
  "photos": [

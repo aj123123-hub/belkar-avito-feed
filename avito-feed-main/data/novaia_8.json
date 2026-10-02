@@ -1,5 +1,5 @@
 {
- "id": "bk-tonar-t4-13v-97883",
+ "id": "novaia_8",
  "old_id": "novaia_8",
  "status": "active",
  "fields": {
@@ -34,7 +34,8 @@
   "TypeOfTrailer": "Шторно-бортовой",
   "TypeOfVehicle": "Полуприцеп",
   "Year": 2026,
-  "Id": "bk-tonar-t4-13v-97883",
+  "Id": "novaia_8",
+  "AvitoId": 7382726366,
   "DealerDiscount": 425000,
   "LeasingDiscount": 425000
  },

@@ -40,6 +40,13 @@ CATALOG_PHOTOS = {
     "novaia_33": ("tonar/Изотермический_R3-13D _97861_", None),
 }
 
+# Отчёт 608758251 (02.10): с новыми Id эти 28 заблокированы как повтор своих же архивных объявлений
+# («Товар уже продаётся» / «Повторное размещение») — возвращаем старые Id+AvitoId, Авито активирует архивное.
+KEEP_OLD_ID = {",ekrfh0550", "8118231548", "8118350682", "8118786818", "8118826997", "8150616785", "V9B8DU2N22",
+               "ad-57304", "ad-57373", "b_63", "clone-130472-1788640746", "gls-1", "gls-11", "gls-12", "gls-3",
+               "gls-4", "gls-5", "novaia_11", "novaia_13", "novaia_14", "novaia_15", "novaia_19", "novaia_27",
+               "novaia_28", "novaia_31", "novaia_32", "novaia_33", "novaia_8"}
+
 CONTACT_DEFAULTS = {"ContactPhone": "79031369484", "ManagerName": "Иван", "EMail": "info@bel-car.com",
                     "CompanyName": "ООО БелКар"}
 
@@ -127,8 +134,11 @@ def main():
         # Артём 10-02: цены без НДС, подарков нет, объявления новые (без привязки к старым AvitoId)
         f["PriceWithVAT"] = "Нет"
         f.pop("Gifts", None)
-        f.pop("AvitoId", None)
-        f["Id"] = new_id(f, used_ids)
+        if rid in KEEP_OLD_ID:
+            used_ids.add(rid)
+        else:
+            f.pop("AvitoId", None)
+            f["Id"] = new_id(f, used_ids)
         f.pop("DealerDiscount", None)
         f.pop("LeasingDiscount", None)
         if dealer:

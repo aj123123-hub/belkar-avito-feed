@@ -1,5 +1,5 @@
 {
- "id": "bk-tonar-k3-40-99881",
+ "id": "novaia_27",
  "old_id": "novaia_27",
  "status": "active",
  "fields": {
@@ -33,7 +33,8 @@
   "TypeOfTrailer": "Контейнеровоз",
   "TypeOfVehicle": "Полуприцеп",
   "Year": 2026,
-  "Id": "bk-tonar-k3-40-99881",
+  "Id": "novaia_27",
+  "AvitoId": 7382919322,
   "DealerDiscount": 112500,
   "LeasingDiscount": 225000
  },

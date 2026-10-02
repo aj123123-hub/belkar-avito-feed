@@ -1,5 +1,5 @@
 {
- "id": "bk-tonar-sh4-74m-97465",
+ "id": "gls-5",
  "old_id": "gls-5",
  "status": "active",
  "fields": {
@@ -36,7 +36,8 @@
   "TypeOfTrailer": "Ломовоз",
   "TypeOfVehicle": "Полуприцеп",
   "Year": 2026,
-  "Id": "bk-tonar-sh4-74m-97465",
+  "Id": "gls-5",
+  "AvitoId": 8182296576,
   "LeasingDiscount": 500000
  },
  "photos": [

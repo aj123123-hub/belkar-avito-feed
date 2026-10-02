@@ -1,5 +1,5 @@
 {
- "id": "bk-interpricep-853375",
+ "id": "clone-130472-1788640746",
  "old_id": "clone-130472-1788640746",
  "status": "active",
  "fields": {
@@ -26,7 +26,8 @@
   "TypeOfVehicle": "Полуприцеп",
   "Year": 2026,
   "AdditionalGuarantee": "Без ограничения по пробегу",
-  "Id": "bk-interpricep-853375",
+  "Id": "clone-130472-1788640746",
+  "AvitoId": 8354178816,
   "ContactPhone": "79031369484",
   "ManagerName": "Иван",
   "EMail": "info@bel-car.com",

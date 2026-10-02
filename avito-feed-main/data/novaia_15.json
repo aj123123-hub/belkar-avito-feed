@@ -1,5 +1,5 @@
 {
- "id": "bk-tonar-sh4-60m-sh4-60-952342",
+ "id": "novaia_15",
  "old_id": "novaia_15",
  "status": "active",
  "fields": {
@@ -34,7 +34,8 @@
   "TypeOfTrailer": "Самосвальный",
   "TypeOfVehicle": "Полуприцеп",
   "Year": 2026,
-  "Id": "bk-tonar-sh4-60m-sh4-60-952342",
+  "Id": "novaia_15",
+  "AvitoId": 7382161564,
   "LeasingDiscount": 500000
  },
  "photos": [

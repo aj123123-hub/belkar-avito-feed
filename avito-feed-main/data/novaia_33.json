@@ -1,5 +1,5 @@
 {
- "id": "bk-tonar-r3-13d-97861",
+ "id": "novaia_33",
  "old_id": "novaia_33",
  "status": "active",
  "fields": {
@@ -33,7 +33,8 @@
   "TypeOfTrailer": "Изотермический",
   "TypeOfVehicle": "Полуприцеп",
   "Year": 2026,
-  "Id": "bk-tonar-r3-13d-97861",
+  "Id": "novaia_33",
+  "AvitoId": 7382937122,
   "LeasingDiscount": 500000
  },
  "photos": [

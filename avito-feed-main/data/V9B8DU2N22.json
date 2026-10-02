@@ -1,5 +1,5 @@
 {
- "id": "bk-interpricep-853371",
+ "id": "V9B8DU2N22",
  "old_id": "V9B8DU2N22",
  "status": "active",
  "fields": {
@@ -27,7 +27,8 @@
   "TypeOfVehicle": "Полуприцеп",
   "Year": 2026,
   "AdditionalGuarantee": "Без ограничения по пробегу",
-  "Id": "bk-interpricep-853371",
+  "Id": "V9B8DU2N22",
+  "AvitoId": 8252327002,
   "ContactPhone": "79031369484",
   "ManagerName": "Иван",
   "EMail": "info@bel-car.com",

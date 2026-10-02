@@ -1,5 +1,5 @@
 {
- "id": "bk-tonar-95941",
+ "id": "b_63",
  "old_id": "b_63",
  "status": "active",
  "fields": {
@@ -34,7 +34,8 @@
   "TypeOfTrailer": "Зерновоз",
   "TypeOfVehicle": "Полуприцеп",
   "Year": 2026,
-  "Id": "bk-tonar-95941",
+  "Id": "b_63",
+  "AvitoId": 4438523678,
   "LeasingDiscount": 500000
  },
  "photos": [

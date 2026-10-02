@@ -1,5 +1,5 @@
 {
- "id": "bk-tonar-b3-13-9888",
+ "id": "8118231548",
  "old_id": "8118231548",
  "status": "active",
  "fields": {
@@ -35,7 +35,8 @@
   "TypeOfTrailer": "Бортовой",
   "TypeOfVehicle": "Полуприцеп",
   "Year": 2026,
-  "Id": "bk-tonar-b3-13-9888",
+  "Id": "8118231548",
+  "AvitoId": 8118231548,
   "DealerDiscount": 315000,
   "LeasingDiscount": 315000
  },

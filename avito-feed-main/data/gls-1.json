@@ -1,5 +1,5 @@
 {
- "id": "bk-tonar-b4-16v-97882",
+ "id": "gls-1",
  "old_id": "gls-1",
  "status": "active",
  "fields": {
@@ -35,7 +35,8 @@
   "TypeOfTrailer": "Бортовой",
   "TypeOfVehicle": "Полуприцеп",
   "Year": 2026,
-  "Id": "bk-tonar-b4-16v-97882",
+  "Id": "gls-1",
+  "AvitoId": 8181970113,
   "DealerDiscount": 380000,
   "LeasingDiscount": 380000
  },
