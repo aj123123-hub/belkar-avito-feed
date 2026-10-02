@@ -47,10 +47,6 @@ KEEP_OLD_ID = {",ekrfh0550", "8118231548", "8118350682", "8118786818", "81188269
                "gls-4", "gls-5", "novaia_11", "novaia_13", "novaia_14", "novaia_15", "novaia_19", "novaia_27",
                "novaia_28", "novaia_31", "novaia_32", "novaia_33", "novaia_8"}
 
-# Отчёт 608787995: эти 6 остались живыми со СТАРЫМ текстом авитолога (подарок до 30.09) — Авито пометил их
-# «Без изменений» и не применил новое описание. Меняем формулировку, чтобы Авито увидел правку и обновил текст.
-FORCE_RESYNC = {",ekrfh0550", "8150616785", "V9B8DU2N22", "clone-130472-1788640746", "gls-4", "novaia_32"}
-
 CONTACT_DEFAULTS = {"ContactPhone": "79031369484", "ManagerName": "Иван", "EMail": "info@bel-car.com",
                     "CompanyName": "ООО БелКар"}
 
@@ -100,9 +96,10 @@ def clean_description(desc, block):
     desc = re.sub(r"\n*={5,}\n.*?\n={5,}\n*", "\n\n", desc, flags=re.S)
     if "ПОДАРОК" in desc:
         raise SystemExit("не удалось вырезать блок с подарком")
-    desc, n = re.subn(r"• <strong>Цена</strong>: с НДС", block, desc)
-    if n != 1:
-        desc = desc.rstrip() + "\n\n" + block
+    # Артём 10-02: цен и скидок в тексте не писать — только в полях фида, иначе менять в двух местах
+    desc = re.sub(r"\n?• <strong>Цена</strong>: с НДС", "", desc)
+    if re.search(r"\d[\d ]{4,}\s*(₽|руб)", desc):
+        raise SystemExit("в описании осталась цена")
     return desc
 
 
@@ -151,8 +148,6 @@ def main():
             f["LeasingDiscount"] = lease
         if "Description" in f:
             f["Description"] = clean_description(f["Description"], block)
-            if rid in FORCE_RESYNC:
-                f["Description"] = f["Description"].replace("Цена по прайсу завода", "Цена по прайсу производителя")
 
         urls = [u.strip() for u in f.pop("ImageUrls").split("|") if u.strip()]
         pdir = os.path.join(HERE, "photos", slug)
