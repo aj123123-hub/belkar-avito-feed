@@ -55,7 +55,7 @@ def main():
             return u, subprocess.run(["curl", "-s", "--max-time", "20", "--retry", "3", "--retry-all-errors", "-o", "/dev/null", "-w", "%{http_code}", u],
                                      capture_output=True, text=True).stdout
 
-        with concurrent.futures.ThreadPoolExecutor(max_workers=20) as pool:
+        with concurrent.futures.ThreadPoolExecutor(max_workers=8) as pool:
             bad = [f"{code} {u}" for u, code in pool.map(check, sorted(all_urls)) if code != "200"]
         if bad:
             raise SystemExit("Битые ссылки на фото (сначала запушьте фото):\n" + "\n".join(bad))

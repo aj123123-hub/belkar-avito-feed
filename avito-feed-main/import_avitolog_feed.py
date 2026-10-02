@@ -165,6 +165,11 @@ def main():
             f["LeasingDiscount"] = lease
         if "Description" in f:
             f["Description"] = clean_description(f["Description"], block)
+            # Артём 10-02: оси — у 95941 (b_63) верен текст (4), у K4-40 (novaia_28) верно поле (4)
+            if rid == "b_63":
+                f["Axles"] = 4
+            if rid == "novaia_28":
+                f["Description"] = f["Description"].replace("Количество осей:</strong> 3,", "Количество осей:</strong> 4,")
             # Авитолог у многих вписал в «Грузоподъёмность» (GrossVehicleWeight) полную массу прицепа
             pl = payload_from_text(f["Description"])
             if pl and abs(int(f.get("GrossVehicleWeight") or 0) - pl) > 1000:
