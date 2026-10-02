@@ -158,7 +158,8 @@ def main():
         else:
             external = urls  # фото только на avito.ru и копии нет — оставляем ссылки Авито как есть
             os.rmdir(pdir)
-        rec = {"id": f["Id"], "old_id": rid, "status": "active", "fields": f, "photos": photos, "external_photo_urls": external}
+        # Артём 10-02: МАЗы скрыть (в фид не идут, Авито уберёт их в архив)
+        rec = {"id": f["Id"], "old_id": rid, "status": "hidden" if f.get("Make") == "МАЗ" else "active", "fields": f, "photos": photos, "external_photo_urls": external}
         with open(os.path.join(HERE, "data", f"{slug}.json"), "w", encoding="utf-8") as fh:
             json.dump(rec, fh, ensure_ascii=False, indent=1)
         print(f"{rid:28} {price:>9} dealer={dealer:>7} lease={lease:>7} photos={len(photos) or len(external)}{' (avito.ru)' if external else ''}")
