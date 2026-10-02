@@ -69,6 +69,23 @@ def new_id(f, used):
     return cand
 
 
+def _num(pattern, text):
+    m = re.search(pattern + r"[^:\n]*:\s*(?:</strong>)?\s*(\d[\d ]{2,})", text)
+    return int(m.group(1).replace(" ", "")) if m else None
+
+
+def payload_from_text(desc):
+    """Грузоподъёмность по тексту: явное значение, иначе полная масса − снаряжённая."""
+    explicit = _num(r"(?:Грузоподъ[её]мность|Масса перевозимого груза|Допустимая масса перевозимого груза)", desc)
+    if explicit:
+        return explicit
+    full = _num(r"(?:Разреш[её]нная максимальная масса|Технически допустимая (?:максимальная )?масса|Максимальная масса прицепа)", desc)
+    curb = _num(r"Масса снаряж[её]нного", desc)
+    if full and curb and full > curb:
+        return full - curb
+    return None
+
+
 def rub(n):
     return f"{n:,}".replace(",", " ") + " ₽"
 
@@ -148,6 +165,11 @@ def main():
             f["LeasingDiscount"] = lease
         if "Description" in f:
             f["Description"] = clean_description(f["Description"], block)
+            # Авитолог у многих вписал в «Грузоподъёмность» (GrossVehicleWeight) полную массу прицепа
+            pl = payload_from_text(f["Description"])
+            if pl and abs(int(f.get("GrossVehicleWeight") or 0) - pl) > 1000:
+                print(f"  {rid}: грузоподъёмность {f.get('GrossVehicleWeight')} → {pl}")
+                f["GrossVehicleWeight"] = pl
 
         urls = [u.strip() for u in f.pop("ImageUrls").split("|") if u.strip()]
         pdir = os.path.join(HERE, "photos", slug)

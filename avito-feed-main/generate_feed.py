@@ -52,7 +52,7 @@ def main():
         print(f"Проверяю {len(all_urls)} ссылок на фото (curl)...")
 
         def check(u):
-            return u, subprocess.run(["curl", "-s", "--max-time", "15", "-o", "/dev/null", "-w", "%{http_code}", u],
+            return u, subprocess.run(["curl", "-s", "--max-time", "20", "--retry", "3", "--retry-all-errors", "-o", "/dev/null", "-w", "%{http_code}", u],
                                      capture_output=True, text=True).stdout
 
         with concurrent.futures.ThreadPoolExecutor(max_workers=20) as pool:
