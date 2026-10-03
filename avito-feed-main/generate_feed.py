@@ -56,7 +56,9 @@ def main():
                                      capture_output=True, text=True).stdout
 
         with concurrent.futures.ThreadPoolExecutor(max_workers=8) as pool:
-            bad = [f"{code} {u}" for u, code in pool.map(check, sorted(all_urls)) if code != "200"]
+            failed = [u for u, code in pool.map(check, sorted(all_urls)) if code != "200"]
+        # GitHub raw иногда рвёт соединение при параллельных запросах — неудачные перепроверяем по одной
+        bad = [f"{code} {u}" for u, code in map(check, failed) if code != "200"]
         if bad:
             raise SystemExit("Битые ссылки на фото (сначала запушьте фото):\n" + "\n".join(bad))
         print("Все фото отдают 200.")
