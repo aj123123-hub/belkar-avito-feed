@@ -171,6 +171,14 @@ def main():
             f.pop("OfficialGuarantee", None)
             f.pop("AdditionalGuarantee", None)
             f["Description"] = re.sub(r"\n[^\n]*\bГарантия\b[^\n]*", "", f["Description"])
+            # Артём 10-03: вся техника под заказ — никакого «в наличии» в тексте
+            for a, b in (("В наличии и под заказ", "Под заказ"),
+                         ("• <strong>Наличие</strong>: \n", "• <strong>Наличие</strong>: Под заказ\n"),
+                         ("наличие, комплектация и ", "комплектация и "), ("комплектация, наличие и ", "комплектация и "),
+                         ("по наличию, комплектации", "по комплектации")):
+                f["Description"] = f["Description"].replace(a, b)
+            if re.search(r"(?i)в наличии|по наличию", f["Description"]):
+                raise SystemExit(f"{rid}: в тексте осталось «в наличии»")
             # Артём 10-03: показ по всей РФ, ПТС «В наличии» у всех, объём 95941 b_63 — 48 м³ (в тексте «41 / 48»)
             f["DisplayAreas"] = DISPLAY_ALL_RF
             f["TechnicalPassport"] = "В наличии"
